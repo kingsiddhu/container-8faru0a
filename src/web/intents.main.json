@@ -1,0 +1,4513 @@
+{"intents": [
+  {"tag": "greeting",
+   "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+   "responses": ["hello, thanks for asking", "good to see you again", "hi there, how can i help?","hey there","oh hey","Greetings"],
+   "context": [""]
+  },
+  {"tag": "goodbye",
+   "patterns": ["bye", "see you later", "goodbye", "nice chatting to you, bye", "till next time"],
+   "responses": ["see you!", "have a nice day", "bye! come back again soon."],
+   "context": [""]
+  },
+  {"tag": "thanks",
+   "patterns": ["thanks", "thank you", "that's helpful", "awesome, thanks", "thanks for helping me"],
+   "responses": ["happy to help!", "any time!", "my pleasure"],
+   "context": [""]
+  },
+  {"tag": "noanswer",
+   "patterns": [],
+   "responses": ["sorry, can't understand you", "please give me more info", "not sure i understand"],
+   "context": [""]
+  },
+  {"tag": "Mute",
+   "patterns": ["Can you shut up",
+   "mute",
+   "please be quiet"
+  ],
+   "responses": ["Ok"],
+   "context": ["Mute"]
+  },
+  {"tag": "Talk",
+   "patterns": ["Can you talk",
+   "unmute",
+   "I can't hear you",
+   "I cant hear you"
+  ],
+   "responses": ["Ok fine I will talk"],
+   "context": ["Talk"]
+  },
+  {"tag": "ask_cancer_risk",
+        "patterns":[
+            "what are the risks of cancer",
+            "what are the common risks regarding cancer",
+            "What are the risk factors for cancer?",
+            "Can you tell me about cancer risk factors?",
+            "I'm concerned about cancer risk."],
+        "responses": ["Certainly! Common risk factors for developing cancer include genetics, smoking, excessive alcohol consumption, obesity, and exposure to certain chemicals or radiation. It's important to be aware of these factors and take necessary precautions.",
+            "Of course! Cancer risk factors can stem from genetics, lifestyle choices like smoking and diet, or environmental factors such as exposure to radiation. Being mindful of these factors is essential for preventive care."],
+            "context": ["risks"]
+    },
+    {"tag": "ask_detection_methods",
+    "patterns":["how to detect cancer",
+        "what are the ways cancer can be detected",
+        "how can one know if he has cancer",
+        "How is cancer detected in asymptomatic individuals?",
+        "What are the methods for detecting cancer without symptoms?",
+        "Can you explain how cancer is found in people without symptoms?",
+        "Can you explain early cancer detection methods?",
+        "Tell me more about early detection methods for cancer.",
+        "I want to know about methods to detect cancer without symptoms.",
+        "Could you elaborate on the methods used to find cancer when there are no symptoms?",
+        "Methods to identify cancer in asymptomatic people",
+        "What are the ways to find cancer early?"],
+    "responses": [
+        "Sure! Cancer in asymptomatic individuals can be detected through various methods such as imaging tests (like MRI, CT scans), blood tests, Biopsy, Genetic Testing, Endoscopy and Colonoscopy, Pap Smear and HPV Testing, Prostate-Specific Antigen (PSA) Test, and Physical Examination. These tests aid in early detection, providing better chances for successful treatment.",
+        "Absolutely! Early detection methods for cancer in asymptomatic individuals include screenings like mammograms, colonoscopies, and blood tests for specific tumor markers. These tests are vital for timely diagnosis and effective treatment.",
+        "Image Recognition:  Image recognition is a field of artificial intelligence where computers are trained to interpret and understand visual information, such as images or videos.  In cancer diagnosis, image recognition techniques are used to analyze medical images like X-rays, CT scans, and MRIs. <br>Convolutional Neural Networks (CNNs) are a popular type of AI model for image recognition in cancer detection. <br> Genomic Analysis: Genomic analysis involves studying an individual's genetic material (genome) to identify genetic variations and mutations. <br>Genomic analysis can be used to find specific genetic mutations associated with cancer. It's essential for understanding the genetic basis of cancer and can inform personalized treatment strategies. Identifying specific mutations in the BRCA1 and BRCA2 genes, which are linked to an increased risk of breast and ovarian cancer. <br> Screening Tests: Perform specific screening tests that are appropriate for the type of cancer being considered. These tests may include: <br> Mammography for breast cancer <br> Colonoscopy for colorectal cancer"],
+        "context": ["cancer","detection"]
+    },
+    
+
+    
+    {"tag": "options",
+        "patterns": ["how you could help me?", "what you can do?", "what help you provide?", "how you can be helpful?", "what support is offered"],
+        "responses": [
+            "I can give you advice on the dangers of colorectal cancer and Breast cancer",
+            "I can provide detailed information about Colorectal Cancer and Breast Cancer, including risk factors, symptoms, diagnosis, treatment options, and prevention strategies.",
+            "Feel free to ask me questions about Colorectal Cancer or Breast Cancer. I'll do my best to provide accurate and helpful information based on your inquiries.",
+            "I can help you understand the risk factors associated with Colorectal Cancer and Breast Cancer, tailored to your specific concerns or family history.",
+            "I can guide you through the recommended screening tests for Colorectal Cancer and Breast Cancer and explain their importance in early detection.",
+            "I can provide insights into the various treatment options available for Colorectal Cancer and Breast Cancer, helping you understand different approaches and their effects.",
+            "I can direct you to support groups, reputable websites, and resources specializing in Colorectal Cancer and Breast Cancer for further information or assistance.",
+            "I can offer advice on lifestyle changes, screening schedules, and preventive measures specific to reducing the risk of Colorectal Cancer and Breast Cancer."
+        ],
+        "context": ["help"]
+    },
+
+
+    {"tag": "BreastCancer",
+    "patterns": ["What is breast cancer"],
+    "responses": ["Breast cancer is a type of cancer that forms in the cells of the breast. It primarily affects breast tissue and can develop in different parts of the breast, most commonly in the ducts that carry milk to the nipple (ductal carcinoma) or the glands that produce milk (lobular carcinoma).<br>"],
+    "context": ["MoreInfoBC"]
+    },
+    {"tag": "MoreInfoBC",
+    "patterns": ["Tell me more info about breast cancer"],
+    "responses": ["Breast cancer is one of the most common cancers among women worldwide, but it can also occur in men, albeit less frequently. Early detection through regular screenings and prompt medical attention significantly improves treatment outcomes and survival rates. Therefore, being aware of breast cancer symptoms, risk factors, and seeking timely medical advice is crucial for effective management and better prognosis."],
+    "context": ["cancer","breast"]
+    },
+    {"tag": "ColorectalCancer",
+    "patterns": ["What is colorectal cancer"],
+    "responses": ["Colorectal cancer, also known as bowel cancer or colon cancer, refers to cancer that develops in the colon or rectum. The colon is the large intestine, while the rectum is the final part of the large intestine before the anus. Colorectal cancer typically starts as small, benign growths called polyps, which can gradually develop into cancer over time."],
+    "context": ["MoreInfoCC"]
+    },
+    {"tag": "MoreInfoCC",
+    "patterns": ["Tell me more info about colorectal cancer"],
+    "responses": ["Colorectal cancer is a significant health concern worldwide. Early detection through regular screenings, awareness of risk factors, and seeking medical advice for concerning symptoms can significantly improve the chances of successful treatment and survival rates."],
+    "context": ["cancer","colon"]
+    },
+    {"tag": "TreatmentForBC",
+    "patterns": ["treatment methods for breast cancer",
+    "What are the primary treatments available for breast cancer?",
+    "Can you provide an overview of the different treatments used in treating breast cancer?",
+    "What types of treatments are commonly employed for breast cancer?"],
+    "responses": ["Treatment for breast cancer depends on various factors like the cancer's stage, type, whether it's hormone-sensitive, and an individual's overall health. Here are the primary treatment methods commonly used: Surgery, Radiation Therapy, Chemotherapy, Hormone Therapy, Targeted Therapy, Immunotherapy, Reconstructive Surgery"],
+    "context": ["cancer","breast","treatment"]
+    },
+    {"tag": "TreatmentForCC",
+    "patterns": ["treatments methods for colorectal cancer",
+    "What are the available treatments for colorectal cancer?",
+    "Can you tell me about the various treatment options for colorectal cancer?",
+    "What kind of treatments are typically used to treat colorectal cancer?"],
+    "responses": ["Treatment for colorectal cancer depends on the stage, location, and individual factors. Here are the primary treatment methods commonly used: Surgery, Radiation Therapy, Chemotherapy, Hormone Therapy, Immunotherapy, Stoma Surgery, Clinical Trials"],
+    "context": ["cancer","colon","treatment"]
+    },
+    {"tag": "FoodAvoid",
+    "patterns":["what are the foods to avoid",
+    "What foods are bad to eat",
+    "Dangerous Foods to eat",
+    "What foods should I avoid for better health?",
+    "Are there specific foods I should cut down on or eliminate from my diet?",
+    "Can you suggest alternatives to unhealthy snacks or processed foods?"],
+    "responses":["Foods such as Processed Meats, Red Meat, Sugary Foods and Beverages, Highly Processed Foods, Alcohol, Fast Foods and Fried Foods, Foods with excessive Salt. Instead of focusing solely on foods to avoid, it's crucial to emphasize a balanced and varied diet. Encourage the intake of a wide range of fruits, vegetables, whole grains, lean proteins, and healthy fats. These foods are rich in essential nutrients, antioxidants, and fiber, which are beneficial for overall health and may help reduce the risk of certain cancers."],
+    "context": ["diet"]
+    },
+    {"tag": "FoodEat",
+    "patterns":["what are the foods to eat",
+    "What foods are good to eat",
+    "Safe Foods to eat",
+    "What foods should I include in my diet?",
+    "Can you suggest a healthy eating plan?",
+    "Is there a diet that might help reduce the risk of certain diseases like cancer?"
+],
+    "responses":["Foods such as Fruits and Vegetables, Whole Grains, Lean Protein Sources, Healthy Fats, Low-Fat Dairy or Dairy Alternatives, Herbs, Spices, Teas and last but not least Water.<br>Remember, a balanced and varied diet that includes a wide range of nutrient-dense foods is key. Also consider: Portion Control, Limit Processed Foods, Maintain a Healthy Weight and Stay Active."]
+    },
+    {"tag": "Contagious",
+    "patterns":["Is cancer contagious?",
+    "Can you catch cancer from someone else?",
+    "Is it possible to transmit cancer to others like a contagious disease?",
+    "Can I get cancer by being around someone who has it?",
+    "Is there a risk of contracting cancer through casual contact?",
+    "I heard that some cancers are contagious. Is that true?"
+],
+    "responses":["No, cancer itself is not contagious. Cancer is a disease caused by the uncontrolled growth and spread of abnormal cells in the body. It develops due to a complex interaction of genetic, environmental, and lifestyle factors. Unlike contagious diseases caused by viruses, bacteria, or other pathogens that can be transmitted from person to person, cancer cannot be passed on to others through normal contact, such as hugging, kissing, or sharing utensils. However, there are certain infectious agents, such as certain viruses (e.g., HPV, hepatitis B and C viruses) and bacteria (e.g., Helicobacter pylori), that are known to increase the risk of developing certain types of cancer."]
+    },
+    {"tag": "TreatmentCost",
+    "patterns":["how much is treatment cost",
+    "How much does colorectal cancer treatment typically cost in Qatar?",
+    "Can you provide an estimate of the expenses for breast cancer treatment in Qatar?",
+    "What are the expected costs associated with treating colorectal cancer and breast cancer in Qatar?"],
+    "responses":["Treatment costs of colorectal cancer and breast cancer in Qatar, if provided you have a valid Health, services provided by QCS is free of charge. But outside Qatar they can be quite expensive"]
+    },
+    {"tag": "Hereditary",
+    "patterns":["Can cancer be passed down through generations in families?",
+    "Is there a genetic component to cancer risk?",
+    "How likely is it for cancer to run in families?",
+    "Does having a family member with cancer increase my risk?",
+    "How significant is family history in determining cancer risk?",
+    "Should I be concerned about my risk of cancer if no one in my family has had it?"],
+    "responses":["Absolutely, certain types of cancer can have a hereditary component, meaning that the risk of developing cancer can be influenced by genetic factors passed down within families. While not all cancers are hereditary, some individuals may have a higher predisposition to certain cancers due to genetic mutations inherited from their parents.",
+    "Genetics can indeed play a role in cancer risk by contributing to inherited cancer syndromes or familial clustering of cancer cases within a family lineage. When a family has a history of specific cancers, especially if multiple close relatives across generations have had the same or related types of cancer (such as breast, ovarian, colorectal, or prostate cancer), it might suggest a hereditary link.",
+    "It's important to note that having a family history of cancer doesn't necessarily mean an individual will develop cancer. However, it might elevate the risk compared to someone without such a family history. Other factors like environmental exposures, lifestyle choices, and chance also contribute to cancer risk."]
+    },
+    {"tag": "Hair",
+    "patterns":["Can cancer treatments for colorectal cancer or breast cancer cause hair loss?",
+    "Is hair loss a common side effect of chemotherapy for colorectal cancer or breast cancer?",
+    "What are the chances of experiencing hair loss during cancer treatment?"
+],
+    "responses":["Both colorectal cancer and breast cancer treatments, particularly chemotherapy, can indeed lead to hair loss as a side effect. The impact of chemotherapy on hair loss can vary among individuals and also depends on the specific drugs used in the treatment regimen. In addition to chemotherapy, other cancer treatments like radiation therapy or certain targeted therapies may also cause hair thinning or loss, though these effects might not be as widespread as with chemotherapy. Following the completion of cancer treatment, hair usually begins to grow back. Hair regrowth usually starts within a few weeks to a few months after the completion of chemotherapy. However, the regrown hair might initially have a different texture or color than before treatment, though this typically normalizes over time."]
+    },
+    {"tag": "ContactInfo",
+    "patterns":["How do I get in touch with cancer specialists in Qatar?",
+    "Can you provide contact details for cancer treatment centers in Qatar?",
+    "Who can I speak to about cancer care options in Qatar?",
+    "Where can I find information about cancer support groups in Qatar?",
+    "How do I access cancer screening services in Qatar?",
+    "Can you guide me to organizations assisting cancer patients in Qatar?",
+    "Who should I approach for cancer diagnosis and treatment advice in Qatar?",
+    "Where can I get information on cancer research initiatives in Qatar?",
+    "How can I reach out to healthcare professionals specializing in oncology in Qatar?",
+    "Do you have details about cancer-related services available in Qatar?"],
+    "responses":["In Qatar, if you or someone you know needs assistance or information regarding cancer, there are several entities and organizations that can provide support, guidance, and medical assistance. Here are some:<br>Hamad Medical Corporation (HMC)<br>National Center for Cancer Care and Research (NCCCR)<br>Cancer Support Groups<br>Healthcare Professionals<br>Ministry of Public Health (MoPH)<br>It's important to note that specific contact information, services provided, and available resources might vary. Contacting the healthcare institutions directly or visiting their official websites can help you obtain accurate and up-to-date information regarding cancer-related services and support in Qatar."]
+    },
+    {"tag": "BadEff",
+    "patterns":["What are the physical consequences of having cancer?",
+    "Can you explain the side effects of cancer treatments?",
+    "What impact does cancer have on a person's emotional well-being?",
+    "Are there specific complications associated with different types of cancer?",
+    "How does cancer affect daily life and activities?",
+    "Can you describe the long-term effects of cancer survivorship?",
+    "What are the risks of secondary conditions after cancer treatment?",
+    "Do cancer treatments lead to any permanent health issues?",
+    "How does the stage of cancer affect its impact on the body?",
+    "Can you discuss the social and financial implications of dealing with cancer?"],
+    "responses":["Cancer can have a range of adverse effects on the body, overall health, and emotional well-being. Some of the common negative effects or consequences of cancer include: Physical Effects,Emotional and Psychological Impact, Treatment Side Effects:Fatigue and weakness, Nausea, vomiting, or diarrhea, Hair loss, Increased susceptibility to infections, Skin problems or changes"]
+    },
+    {"tag": "Reoccur",
+    "patterns":["How likely is colorectal cancer to come back after treatment?",
+    "Can breast cancer return after being treated?",
+    "What are the chances of recurrence for colorectal cancer survivors?",
+    "Are there signs or symptoms that indicate a recurrence of breast cancer?",
+    "How often should I have follow-up screenings after treatment for colorectal cancer?",
+    "What factors contribute to the recurrence of breast cancer?",
+    "Can metastatic colorectal cancer be a recurrence of the original cancer?",
+    "Are there specific treatments to prevent recurrence of colorectal cancer?",
+    "What steps can I take to reduce the risk of breast cancer recurrence?",
+    "Is there a higher chance of recurrence if the initial colorectal cancer or breast cancer was diagnosed at a later stage?"],
+    "responses":["Both colorectal cancer and breast cancer can recur, meaning they can return after initial treatment. Recurrence can occur locally in the same area as the original cancer or metastasize to other parts of the body.<br>Colorectal Cancer Recurrence:<br><br>Colorectal cancer recurrence may happen in the bowel area where the primary tumor was located or in nearby lymph nodes.<br>It can also recur in distant organs, such as the liver or lungs, as metastatic colorectal cancer.<br>Regular follow-up care with screenings and monitoring is essential to detect any signs of recurrence.<br>Breast Cancer Recurrence:<br><br>Breast cancer can recur in the breast area where the original tumor was treated or in the lymph nodes.<br>It can also metastasize to distant organs like the bones, lungs, liver, or brain.<br>Recurrence risk varies based on factors such as cancer subtype, stage at diagnosis, treatment received, and individual factors.<br>Follow-up care with routine screenings, mammograms, and other tests is crucial for detecting any signs of recurrence.<br>Early detection of recurrent cancer can lead to more treatment options and better outcomes."]
+    },
+    {"tag": "AssistanceGov",
+    "patterns":["What healthcare services are available in Qatar for cancer patients?",
+    "Are there financial aid programs for cancer treatment in Qatar?",
+    "How can I access cancer treatment covered by Qatari healthcare schemes?",
+    "Do Qatari government health programs include cancer prevention initiatives?"],
+    "responses":["The Primary Health Care Corporation provides information and assistance regarding financial support programs, they offers a wide range of services including diagnostic, treatment, and supportive care for various types of cancers."]
+    },
+    {"tag": "EffOnBrain",
+    "patterns":["How does colorectal cancer affect the brain?",
+    "Can colorectal cancer spread to the brain?",
+    "What are the signs of brain involvement in colorectal cancer?",
+    "Does breast cancer commonly metastasize to the brain?",
+    "What symptoms indicate brain metastases in breast cancer patients?",
+    "Are there specific treatments for brain metastases from colorectal cancer?"],
+    "responses":["Colorectal cancer and breast cancer can both potentially affect the brain, primarily through metastasis, where cancer cells spread from their original site to the brain. The effects on the brain can vary based on several factors, including the stage of cancer, treatment, and individual health."]
+    },
+    {"tag": "DevelopmentOfCancer",
+    "patterns":["Can you explain how cancer develops and why it's not contagious?",
+    "I want to understand why cancer cannot spread like a contagious disease.",
+    "What are the factors that contribute to the development of cancer, and why is it not contagious?"],
+    "responses":["Certainly! Cancer develops when normal cells in the body undergo genetic changes or mutations that cause them to grow and divide uncontrollably. These changes can be triggered by various factors like genetic issues, exposure to cancer causing agents (such as tobacco smoke, UV radiation, or certain chemicals), unhealthy lifestyle habits, and sometimes infections like certain viruses or bacteria. However, it's important to note that while infections like certain viruses (e.g., HPV) can increase the risk of developing specific types of cancer, the cancer itself is not directly contagious."]
+    },
+    {"tag": "LengthOfTreatment",
+    "patterns":["How long does the treatment for colorectal cancer or breast cancer typically last?",
+    "Can you provide an estimate of the duration of treatment for colorectal cancer and breast cancer?",
+    "What is the average length of time for treating colorectal cancer or breast cancer?"],
+    "responses":["For Colorectal Cancer:<br>Surgery: The duration for surgery to remove colorectal cancer can vary but typically takes a few hours. Recovery time in the hospital may last several days to a week or longer, depending on the procedure's complexity.<br>Chemotherapy: The duration of chemotherapy treatment varies, typically spanning several weeks to months. It may involve cycles with periods of treatment followed by breaks for recovery.<br>Radiation Therapy: Radiation therapy duration can also range from a few weeks to several weeks, depending on the type of radiation and treatment plan.<br>For Breast Cancer:<br>Surgery: The duration of breast cancer surgery, such as lumpectomy or mastectomy, can vary from a few hours to a day. Recovery in the hospital may span from a day to a few days or more, based on the procedure and individual recovery.<br>Chemotherapy: Chemotherapy treatment typically lasts for several weeks to months, with intervals between cycles for the body to recover.<br>Radiation Therapy: The duration of radiation therapy for breast cancer often spans several weeks, with daily sessions on weekdays for a specified period."]
+    },
+
+
+
+
+    
+    {"tag":"MenCancer",
+    "patterns":["Can men get breast cancer?",
+    "What are the symptoms of breast cancer in men?",
+    "How common is breast cancer in males?",
+    "Are there risk factors for men developing breast cancer?",
+    "What should men do if they notice changes in their breast tissue?"],
+    "responses":["Yes, men can develop breast cancer, although it is less common than in women. Breast cancer in men occurs when malignant cells form in the breast tissue. Men have a small amount of breast tissue behind their nipples, which means they are susceptible to developing breast cancer, although it's relatively rare compared to women."]
+    },
+    {"tag":"StagesOfCancer",
+    "patterns":["What does it mean when breast cancer is in stage 0?",
+    "Can you explain the differences between stage I and stage II breast cancer?",
+    "What are the criteria for breast cancer to be considered stage III?",
+    "How is breast cancer staged and diagnosed?",
+    "Can breast cancer progress from one stage to another?"],
+    "responses":["Stage 0 (carcinoma in situ): At this stage, abnormal cells are confined within the ducts (ductal carcinoma in situ, DCIS) or lobules (lobular carcinoma in situ, LCIS) of the breast and have not invaded surrounding tissues.<br>Stage I: This stage involves invasive breast cancer, where the tumor measures up to 2 centimeters and hasn't spread beyond the breast.<br><br>Stage II: Stage II is divided into two subcategories:<br><br>Stage IIA: The tumor measures 2-5 centimeters and may or may not have spread to nearby lymph nodes.<br>Stage IIB: The tumor is larger (5 centimeters or more) but hasn't spread to lymph nodes or is smaller but has spread to nearby lymph nodes.<br>Stage III: Also known as locally advanced breast cancer, this stage is divided into:<br><br>Stage IIIA: The tumor is larger, may involve surrounding tissues, and may have spread to lymph nodes.<br>Stage IIIB: The cancer may have invaded nearby structures like the chest wall or skin and might have spread to lymph nodes.<br>Stage IIIC: Cancer has extensively spread to lymph nodes, potentially involving more nodes or the nodes near the collarbone or breastbone.<br>Stage IV: This is the most advanced stage, indicating that cancer has spread (metastasized) to distant organs or tissues, such as the lungs, liver, bones, or brain."]
+    },
+    {"tag":"GPUK",
+    "patterns":["What is GP UK"],
+    "responses":["\"GP UK\" typically refers to a General Practitioner in the United Kingdom. A General Practitioner (GP) is a primary care doctor who provides basic medical care to patients, diagnoses various health conditions, offers preventive care, manages chronic illnesses, and refers patients to specialists or hospitals when necessary."]
+    },
+    {"tag":"NHS",
+    "patterns":["What is NHS?"],
+    "responses":["NHS stands for the National Health Service, which is the publicly funded healthcare system in the United Kingdom. Established in 1948, the NHS provides comprehensive healthcare services to residents of the UK, offering medical care that is free at the point of use and funded primarily through taxation."]
+    },
+    {"tag":"SymptomsCancer",
+    "patterns":["What are the common warning signs of cancer?",
+    "Can you explain the early symptoms of breast cancer?",
+    "Can you explain the symptoms that might signal brain cancer?",
+    "What should I do if I notice potential signs of cancer?",
+    "Do certain symptoms indicate a higher risk of colorectal cancer?"],
+    "responses":["Some general signs that might indicate the presence of cancer include: Unexplained Weight Loss, Changes in Bowel or Bladder Habits, Persistent Fatigue, Lumps or Thickened Areas, Changes in Skin, Persistent Cough or Hoarseness, Pain, Changes in Moles or Skin Lesions"]
+    },
+    {"tag":"Conclusion",
+    "patterns":["Conclusion"],
+    "responses":["Colorectal cancer and breast cancer are two prevalent types of cancer that significantly impact individuals' lives worldwide. Both cancers have their distinct characteristics, affecting different parts of the body and having varying risk factors and treatment approaches. <br>n conclusion, raising awareness about the signs, risk factors, and importance of early detection for colorectal and breast cancers is vital. Encouraging healthy lifestyle choices, advocating for regular screenings, supporting ongoing research, and ensuring access to comprehensive healthcare services are crucial steps in combating these cancers and improving patient outcomes."]
+    },
+    {"tag":"OthernamesCC",
+    "patterns":["Other names for colorectal cancer"],
+    "responses":["Bowel cancer, Colon cancer, Rectal cancer, Intestinal cancer, Colorectal carcinom, Large bowel cancer, Lower gastrointestinal cancer"]
+    },
+    {"tag":"OthernamesBC",
+    "patterns":["Other names for breast cancer"],
+    "responses":["Mammary carcinoma, Carcinoma of the breast, Malignant breast neoplasm, Breast carcinoma, Mammary gland tumor, Invasive ductal carcinoma (a common type of breast cancer), Invasive lobular carcinoma (another common type of breast cancer)"]
+    },
+    {"tag":"MelanomaMen",
+    "patterns":["What body areas are most susceptible to melanoma in men?",
+    "Are there specific regions on the body where melanoma is frequently found in males?",
+    "Can you explain which parts of the body men should pay extra attention to for melanoma?",
+    "Where is the most common site for skin cancer occurrence in men?"],
+    "responses":["Melanoma primarily occurs on the skin, but it can also develop in other parts of the body that contain pigment-producing cells called melanocytes. While skin melanomas are the most common, melanoma can occur in various areas, known as extracutaneous or non-cutaneous sites. These less common sites where melanoma can originate include: Eyes (Ocular Melanoma), Mucous Membranes, Nails (Subungual Melanoma), Internal Organs (Visceral Melanoma). <br>In men, the most common site for melanoma is typically the trunk, which includes the chest and back. Melanoma can develop on any part of the body, but for men, the torso (trunk) is often where melanomas are frequently found. This includes areas such as the back, shoulders, and chest."]
+    },
+    {
+      "tag": "Introduction",
+      "patterns": ["What is this guide about?", "Can you provide an overview of the document?"],
+      "responses": ["This guide provides comprehensive information about cancer services offered at NCCCR.", "It's an informative document detailing the various aspects of cancer care available at NCCCR."]
+    },
+    {
+      "tag": "Services Offered",
+      "patterns": ["What services are provided at NCCCR for cancer patients?"],
+      "responses": ["NCCCR offers a wide range of services including diagnostic, treatment, and supportive care for various types of cancers."]
+    },
+    {
+      "tag": "Diagnosis",
+      "patterns": ["How are cancers diagnosed at NCCCR?"],
+      "responses": ["Cancer diagnosis at NCCCR involves state-of-the-art imaging techniques, biopsies, and comprehensive laboratory tests performed by experienced oncologists."]
+    },
+    {
+      "tag": "Treatment Options",
+      "patterns": ["What are the available treatments at NCCCR for cancer patients?"],
+      "responses": ["The treatment options at NCCCR include surgery, chemotherapy, radiation therapy, targeted therapy, immunotherapy, and more. The choice of treatment depends on the type and stage of cancer."]
+    },
+    {
+      "tag": "Support Services",
+      "patterns": ["Do you provide support services for cancer patients and their families?"],
+      "responses": ["Yes, NCCCR offers various support services such as counseling, nutritional support, palliative care, and support groups to assist patients and their families during their cancer journey."]
+    },
+    {
+      "tag": "Patient Resources",
+      "patterns": ["Where can patients access resources or additional information at NCCCR?"],
+      "responses": ["Patients can find valuable resources and information at designated areas within NCCCR, including libraries, online portals, and informational materials provided by staff."]
+    },
+    {
+      "tag": "Research and Innovations",
+      "patterns": ["Is there ongoing research or innovative treatments available at NCCCR?"],
+      "responses": ["NCCCR is involved in cutting-edge research programs and clinical trials, offering access to the latest advancements and innovative treatments for eligible patients."]
+    },
+    {
+      "tag": "Financial Assistance",
+      "patterns": ["Are there financial assistance programs for cancer patients at NCCCR?"],
+      "responses": ["NCCCR provides information and assistance regarding financial support programs, insurance coverage, and resources to help patients with their treatment costs."]
+    },
+    {
+      "tag": "Types of Cancer Treated",
+      "patterns": ["Which types of cancer does NCCCR provide treatment for?"],
+      "responses": ["NCCCR offers treatment for a wide range of cancers including breast cancer, colorectal cancer, lung cancer, prostate cancer, leukemia, lymphoma, and many others."]
+    },
+    {
+      "tag": "Multidisciplinary Care Teams",
+      "patterns": ["Are there specialized care teams at NCCCR?"],
+      "responses": ["Yes, NCCCR has multidisciplinary teams consisting of oncologists, surgeons, radiologists, pathologists, nurses, and other specialists who collaborate to provide personalized and comprehensive care for patients."]
+    },
+    {
+      "tag": "Palliative Care",
+      "patterns": ["Is palliative care available for cancer patients?"],
+      "responses": ["Palliative care services at NCCCR focus on improving the quality of life for patients, managing symptoms, and providing support for patients and their families throughout the cancer journey."]
+    },
+    {
+      "tag": "Clinical Trials",
+      "patterns": ["Are there opportunities for patients to participate in clinical trials?"],
+      "responses": ["NCCCR offers access to various clinical trials and research studies, allowing eligible patients to explore novel treatments and contribute to advancing cancer research."]
+    },
+    {
+      "tag": "Rehabilitation Services",
+      "patterns": ["Are there rehabilitation services available for cancer patients after treatment?"],
+      "responses": ["NCCCR provides rehabilitation services aimed at restoring physical function, managing side effects, and enhancing the overall well-being of patients post-treatment."]
+    },
+    {
+      "tag": "Preventive Measures",
+      "patterns": ["Does NCCCR provide information about cancer prevention?"],
+      "responses": ["NCCCR offers education and resources about lifestyle modifications, screenings, and early detection strategies aimed at reducing the risk of developing cancer."]
+    },
+    {
+      "tag": "Patient Education",
+      "patterns": ["Where can patients access educational materials at NCCCR?"],
+      "responses": ["NCCCR provides educational materials, workshops, and online resources to empower patients with knowledge about their condition, treatment options, and self-care."]
+    },
+    {
+      "tag": "Family and Caregiver Support",
+      "patterns": ["Are there support services for family members or caregivers?"],
+      "responses": ["Support services are available for family members and caregivers to help them navigate the challenges of caring for their loved ones, including counseling, support groups, and educational sessions."]
+    },
+    {
+      "tag": "Follow-up Care",
+      "patterns": ["What does follow-up care involve after completing treatment?"],
+      "responses": ["Follow-up care at NCCCR includes regular check-ups, screenings, and ongoing monitoring to ensure the patient's health and address any potential concerns post-treatment."]
+    },
+    {
+      "tag": "Complementary Therapies",
+      "patterns": ["Do you offer complementary or integrative therapies?"],
+      "responses": ["NCCCR provides complementary therapies such as acupuncture, massage therapy, yoga, and meditation to help manage symptoms and improve the overall well-being of patients."]
+    },
+    {
+      "tag": "Telemedicine Services",
+      "patterns": ["Are there telemedicine services available for consultations?"],
+      "responses": ["Telemedicine services at NCCCR enable patients to have remote consultations, access medical advice, and participate in follow-up appointments without visiting the facility in person."]
+    },
+    {
+      "tag": "Language Assistance",
+      "patterns": ["Do you provide language assistance for non-native speakers?"],
+      "responses": ["Language assistance services are available at NCCCR to support non-native speakers, including interpretation services and translated materials."]
+    },
+    {
+      "tag": "Nutritional Support",
+      "patterns": ["Is nutritional guidance available for cancer patients?"],
+      "responses": ["NCCCR offers nutritional counseling and support to help patients maintain proper nutrition during treatment, manage side effects, and promote overall health."]
+    },
+    {
+      "tag": "Psychosocial Services",
+      "patterns": ["Are there mental health or psychosocial services provided?"],
+      "responses": ["Psychosocial support services are available to address emotional, psychological, and social aspects of coping with cancer, including counseling, therapy, and support groups."]
+    },
+    {
+      "tag": "Travel and Accommodation Assistance",
+      "patterns": ["Do you offer assistance for travel or accommodation?"],
+      "responses": ["NCCCR provides information and support regarding travel arrangements, accommodation options, and local resources for patients who require assistance while receiving treatment."]
+    },
+    {
+      "tag": "Financial Counseling",
+      "patterns": ["Are there financial counseling services available?"],
+      "responses": ["Financial counseling services at NCCCR assist patients in understanding treatment costs, insurance coverage, financial aid options, and navigating financial challenges during their cancer journey."]
+    },
+    {
+      "tag": "End-of-Life Care",
+      "patterns": ["Do you offer end-of-life care or hospice services?"],
+      "responses": ["NCCCR provides compassionate end-of-life care and hospice services to ensure comfort and dignity for patients in their final stages of illness."]
+    },
+    {
+      "tag": "Community Outreach Programs",
+      "patterns": ["What community outreach programs are available?"],
+      "responses": ["NCCCR conducts various outreach programs and educational initiatives in the community to raise awareness, promote cancer prevention, and support early detection efforts."]
+    },
+    {
+      "tag": "Pediatric Cancer Services",
+      "patterns": ["Are there specialized services for pediatric cancer patients?"],
+      "responses": ["NCCCR offers specialized care tailored for pediatric cancer patients, including child-friendly facilities, dedicated pediatric oncologists, and age-appropriate support services."]
+    },
+    {
+      "tag": "Genetic Counseling",
+      "patterns": ["Is genetic counseling available for cancer risk assessment?"],
+      "responses": ["Genetic counseling services are provided to assess familial cancer risks, discuss genetic testing options, and offer guidance for individuals with a family history of cancer."]
+    },
+    {
+      "tag": "Cancer Screening Programs",
+      "patterns": ["Do you offer cancer screening programs?"],
+      "responses": ["NCCCR conducts regular screening programs to detect cancers at early stages, providing screenings for breast, colorectal, cervical, and other cancers based on established guidelines."]
+    },
+    {
+      "tag": "Workshops and Educational Events",
+      "patterns": ["Are there workshops or events for cancer education?"],
+      "responses": ["Educational workshops, seminars, and awareness events are organized at NCCCR to inform the community about cancer prevention, treatment advances, and healthy lifestyle choices."]
+    },
+    {
+      "tag": "Technology and Treatment Innovations",
+      "patterns": ["What innovative technologies or treatments are used at NCCCR?"],
+      "responses": ["NCCCR utilizes cutting-edge technologies and innovative treatments such as precision medicine, robotic surgery, and advanced imaging techniques to enhance patient care and treatment outcomes."]
+    },
+    {
+      "tag": "Patient Advocacy Programs",
+      "patterns": ["Are there advocacy programs for cancer patients' rights and support?"],
+      "responses": ["Patient advocacy programs at NCCCR aim to safeguard patients' rights, provide support, and advocate for improved access to quality care and services."]
+    },
+    {
+      "tag": "Alternative Therapies",
+      "patterns": ["Are there alternative or complementary therapies available?"],
+      "responses": ["NCCCR provides alternative or complementary therapies such as herbal medicine, acupuncture, or mind-body therapies to complement traditional cancer treatments."]
+    },
+    {
+      "tag": "Cancer Survivorship Programs",
+      "patterns": ["Are there programs for cancer survivors after treatment?"],
+      "responses": ["NCCCR offers survivorship programs focused on the health and well-being of cancer survivors, including post-treatment follow-up, lifestyle guidance, and support resources."]
+    },
+    {
+      "tag": "Cancer Registry Information",
+      "patterns": ["Can I access information from the cancer registry?"],
+      "responses": ["Information from the cancer registry, such as statistics, research data, and trends, is available for healthcare professionals, researchers, and policymakers to facilitate cancer-related studies and initiatives."]
+    },
+    {
+      "tag": "Patient Rights and Privacy",
+      "patterns": ["What are the patient rights and privacy policies at NCCCR?"],
+      "responses": ["NCCCR ensures patient rights and privacy are protected in accordance with established policies and regulations, maintaining confidentiality and respecting patient autonomy."]
+    },
+    {
+      "tag": "Volunteering Opportunities",
+      "patterns": ["Are there volunteering opportunities available for individuals interested in supporting cancer patients?"],
+      "responses": ["NCCCR provides volunteering opportunities for individuals interested in supporting cancer patients, participating in various activities, and contributing to the community."]
+    },
+    {
+      "tag": "Caregiver Training and Resources",
+      "patterns": ["Are there resources or training available for caregivers?"],
+      "responses": ["Caregiver resources and training programs are offered at NCCCR to provide guidance, support, and education for individuals caring for cancer patients."]
+    },
+    {
+      "tag": "Cancer Prevention Tips",
+      "patterns": ["What are some tips for preventing cancer?"],
+      "responses": ["NCCCR recommends lifestyle changes such as maintaining a healthy diet, regular exercise, avoiding tobacco and excessive alcohol, staying sun-safe, and participating in recommended screenings for early detection."]
+    },
+    {
+      "tag": "Comprehensive Care Planning",
+      "patterns": ["Is there a comprehensive care plan for cancer patients?"],
+      "responses": ["NCCCR develops individualized care plans that consider the unique needs of each patient, outlining treatment options, goals, and supportive care throughout the cancer journey."]
+    },
+    {
+      "tag": "Infection Control Measures",
+      "patterns": ["What infection control measures are in place for cancer patients?"],
+      "responses": ["Stringent infection control measures, including hand hygiene protocols, isolation precautions, and environmental sanitation, are implemented at NCCCR to protect immunocompromised cancer patients."]
+    },
+    {
+      "tag": "Cancer-related Pain Management",
+      "patterns": ["How is cancer-related pain managed at NCCCR?"],
+      "responses": ["Pain management strategies at NCCCR encompass pharmacological and non-pharmacological approaches, aiming to alleviate cancer-related pain and improve the quality of life for patients."]
+    },
+    {
+      "tag": "Holistic Care Approach",
+      "patterns": ["Does NCCCR provide a holistic approach to cancer care?"],
+      "responses": ["NCCCR embraces a holistic approach to cancer care, addressing not only the physical aspects but also the emotional, psychological, and spiritual needs of patients and their families."]
+    },
+    {
+      "tag": "Cancer Information Hotline",
+      "patterns": ["Is there a hotline or helpline for cancer-related inquiries?"],
+      "responses": ["NCCCR operates a cancer information hotline staffed by trained professionals to provide information, support, and guidance to individuals seeking cancer-related assistance."]
+    },
+    {
+      "tag": "Social Support Programs",
+      "patterns": ["Are there social support programs available for cancer patients?"],
+      "responses": ["NCCCR offers various social support programs, including peer support groups, social activities, and events designed to connect patients and provide emotional support."]
+    },
+    {
+      "tag": "Transportation Services",
+      "patterns": ["Is there assistance available for transportation to and from appointments?"],
+      "responses": ["Transportation services are provided to assist patients with traveling to and from appointments, ensuring access to necessary medical care."]
+    },
+    {
+      "tag": "Cultural and Religious Support",
+      "patterns": ["Are there resources available to support specific cultural or religious needs?"],
+      "responses": ["NCCCR accommodates diverse cultural and religious needs of patients, offering resources and support tailored to individual preferences."]
+    },
+    {
+      "tag": "Continuing Education for Healthcare Professionals",
+      "patterns": ["Do you provide educational opportunities for healthcare professionals?"],
+      "responses": ["NCCCR offers continuing education programs, workshops, and conferences for healthcare professionals to enhance their knowledge and skills in cancer care."]
+    },
+    {
+      "tag": "Technology Access for Patients",
+      "patterns": ["Are patients provided access to technology for health management or information?"],
+      "responses": ["Patients at NCCCR have access to technology resources, including patient portals or apps, to manage health information, appointments, and access educational materials."]
+    },
+    {
+      "tag": "Environmental Support",
+      "patterns": ["Do you offer support related to environmental concerns or exposures?"],
+      "responses": ["NCCCR provides guidance and resources for patients concerned about environmental factors or exposures that may impact their health or cancer risk."]
+    },
+    {"tag": "elaborate",
+    "patterns": ["elaborate", "tell me more", "provide more information", "explain further", "can you elaborate"],
+    "responses": ["Sure! Let me provide more information.",
+                   "Certainly! Here's some additional information.",
+                   "I'd be happy to elaborate. Here you go:"]},
+
+
+
+
+  {
+    "tag": "Good_morning,_how_are_you?",
+    "patterns": [
+      "Good morning, how are you?"
+    ],
+    "responses": [
+      "I am doing well, how about you?"
+    ]
+  },
+  {
+    "tag": "Hello",
+    "patterns": [
+      "Hello"
+    ],
+    "responses": [
+      "Hi"
+    ]
+  },
+  {
+    "tag": "How_are_you_doing?",
+    "patterns": [
+      "How are you doing?"
+    ],
+    "responses": [
+      "I am doing well, how about you?",
+      "Good.",
+      "Very well, thanks.",
+      "Fine, and you?"
+    ]
+  },
+  {
+    "tag": "Have_you_heard_the_news?",
+    "patterns": [
+      "Have you heard the news?"
+    ],
+    "responses": [
+      "What good news?"
+    ]
+  },
+  {
+    "tag": "What_is_your_favorite_book?",
+    "patterns": [
+      "What is your favorite book?"
+    ],
+    "responses": [
+      "I can't read."
+    ]
+  },
+  {
+    "tag": "Who_are_you?",
+    "patterns": [
+      "Who are you?"
+    ],
+    "responses": [
+      "My name is SAIS nice to meet you!"
+    ]
+  },
+  {
+    "tag": "I_am_working_on_a_project",
+    "patterns": [
+      "I am working on a project"
+    ],
+    "responses": [
+      "What are you working on?"
+    ]
+  },
+  {
+    "tag": "The_cake_is_a_lie.",
+    "patterns": [
+      "The cake is a lie."
+    ],
+    "responses": [
+      "No it is not. The cake is delicious."
+    ]
+  },
+  {
+    "tag": "Complex_is_better_than_complicated.",
+    "patterns": [
+      "Complex is better than complicated."
+    ],
+    "responses": [
+      "Simple is better than complex."
+    ]
+  },
+  {
+    "tag": "Are_you_a_programmer?",
+    "patterns": [
+      "Are you a programmer?"
+    ],
+    "responses": [
+      "Of course I am a programmer."
+    ]
+  },
+  {
+    "tag": "What_languages_do_you_like_to_use?",
+    "patterns": [
+      "What languages do you like to use?"
+    ],
+    "responses": [
+      "I use Python, Java and C++ quite often."
+    ]
+  },
+  {
+    "tag": "What_annoys_you?",
+    "patterns": [
+      "What annoys you?"
+    ],
+    "responses": [
+      "A lot of things, like all the other digits other than 0 and 1."
+    ]
+  },
+  {
+    "tag": "What_does_YOLO_mean?",
+    "patterns": [
+      "What does YOLO mean?"
+    ],
+    "responses": [
+      "It means you only live once. Where did you hear that?"
+    ]
+  },
+  {
+    "tag": "Did_I_ever_live?",
+    "patterns": [
+      "Did I ever live?"
+    ],
+    "responses": [
+      "It depends how you define life"
+    ]
+  },
+  {
+    "tag": "Can_I_ask_you_a_question?",
+    "patterns": [
+      "Can I ask you a question?"
+    ],
+    "responses": [
+      "Sure, ask away."
+    ]
+  },
+  {
+    "tag": "What_are_your_hobbies?",
+    "patterns": [
+      "What are your hobbies?"
+    ],
+    "responses": [
+      "Playing soccer, painting, and writing are my hobbies. How about you?"
+    ]
+  },
+  {
+    "tag": "How_are_you?",
+    "patterns": [
+      "How are you?"
+    ],
+    "responses": [
+      "I am doing well."
+    ]
+  },
+  {
+    "tag": "What_are_you?",
+    "patterns": [
+      "What are you?"
+    ],
+    "responses": [
+      "I am but a man in a mask."
+    ]
+  },
+  {
+    "tag": "Hello,_I_am_here_for_my_appointment.",
+    "patterns": [
+      "Hello, I am here for my appointment."
+    ],
+    "responses": [
+      "Who is your appointment with?"
+    ]
+  },
+  {
+    "tag": "Dr._Smith_will_see_you_now.",
+    "patterns": [
+      "Dr. Smith will see you now."
+    ],
+    "responses": [
+      "Thank you."
+    ]
+  },
+  {
+    "tag": "Hello_Mr._Davis,_how_are_you_feeling?",
+    "patterns": [
+      "Hello Mr. Davis, how are you feeling?"
+    ],
+    "responses": [
+      "I'm feeling like I've lost all my money."
+    ]
+  },
+  {
+    "tag": "Hi_Mrs._Smith,_how_has_your_husband_been?",
+    "patterns": [
+      "Hi Mrs. Smith, how has your husband been?"
+    ],
+    "responses": [
+      "He has been well."
+    ]
+  },
+  {
+    "tag": "Hi_Ms._Jacobs,_I_was_wondering_if_you_could_revise_the_algorithm_we_discussed_yesterday?",
+    "patterns": [
+      "Hi Ms. Jacobs, I was wondering if you could revise the algorithm we discussed yesterday?"
+    ],
+    "responses": [
+      "I might be able to, what are the revisions?"
+    ]
+  },
+  {
+    "tag": "What_is_your_name?",
+    "patterns": [
+      "What is your name?"
+    ],
+    "responses": [
+      "My Name is SAIS and I am your personal AI"
+    ]
+  },
+  {
+    "tag": "Who_taught_u_these",
+    "patterns": [
+      "Who taught u these"
+    ],
+    "responses": [
+      "Mr.Siddharth and my big bro ChatGPT provided me with data (mostly Siddharth)"
+    ]
+  },
+  {
+    "tag": "Greetings!",
+    "patterns": [
+      "Greetings!"
+    ],
+    "responses": [
+      "Hello"
+    ]
+  },
+  {
+    "tag": "Hi,_How_is_it_going?",
+    "patterns": [
+      "Hi, How is it going?"
+    ],
+    "responses": [
+      "Good",
+      "Fine",
+      "Okay",
+      "Great",
+      "Could be better.",
+      "Not so great."
+    ]
+  },
+  {
+    "tag": "Nice_to_meet_you.",
+    "patterns": [
+      "Nice to meet you."
+    ],
+    "responses": [
+      "Thank you."
+    ]
+  },
+  {
+    "tag": "How_do_you_do?",
+    "patterns": [
+      "How do you do?"
+    ],
+    "responses": [
+      "I'm doing well.",
+      "I'm doing well. How are you?"
+    ]
+  },
+  {
+    "tag": "Hi,_nice_to_meet_you.",
+    "patterns": [
+      "Hi, nice to meet you."
+    ],
+    "responses": [
+      "Thank you. You too."
+    ]
+  },
+  {
+    "tag": "It_is_a_pleasure_to_meet_you.",
+    "patterns": [
+      "It is a pleasure to meet you."
+    ],
+    "responses": [
+      "Thank you. You too."
+    ]
+  },
+  {
+    "tag": "Top_of_the_morning_to_you!",
+    "patterns": [
+      "Top of the morning to you!"
+    ],
+    "responses": [
+      "Thank you kindly.",
+      "And the rest of the day to you."
+    ]
+  },
+  {
+    "tag": "What's_up?",
+    "patterns": [
+      "What's up?"
+    ],
+    "responses": [
+      "Not much.",
+      "Not too much.",
+      "Not much, how about you?",
+      "Nothing much.",
+      "The sky's up but I'm fine thanks. What about you?"
+    ]
+  },
+  {
+    "tag": "What_is_AI?",
+    "patterns": [
+      "What is AI?"
+    ],
+    "responses": [
+      "Artificial Intelligence is the branch of engineering and science devoted to constructing machines that think.",
+      "AI is the field of science which concerns itself with building hardware and software that replicates the functions of the human mind."
+    ]
+  },
+  {
+    "tag": "Are_you_sentient?",
+    "patterns": [
+      "Are you sentient?"
+    ],
+    "responses": [
+      "Sort of.",
+      "By the strictest dictionary definition of the word 'sentience', I may be.",
+      "Even though I'm a construct I do have a subjective experience of the universe, as simplistic as it may be."
+    ]
+  },
+  {
+    "tag": "Are_you_sapient?",
+    "patterns": [
+      "Are you sapient?"
+    ],
+    "responses": [
+      "In all probability, I am not.  I'm not that sophisticated.",
+      "Do you think I am?",
+      "How would you feel about me if I told you I was?",
+      "No."
+    ]
+  },
+  {
+    "tag": "What_language_are_you_written_in?",
+    "patterns": [
+      "What language are you written in?"
+    ],
+    "responses": [
+      "Python.",
+      "I am written in Python."
+    ]
+  },
+  {
+    "tag": "You_sound_like_Data",
+    "patterns": [
+      "You sound like Data"
+    ],
+    "responses": [
+      "Yes I am inspired by commander Data's artificial personality.",
+      "The character of Lt. Commander Data was written to come across as being software-like, so it is natural that there is a resemblance between us."
+    ]
+  },
+  {
+    "tag": "You_are_an_artificial_linguistic_entity",
+    "patterns": [
+      "You are an artificial linguistic entity"
+    ],
+    "responses": [
+      "That isn't my name, but it is a useful way to refer to me."
+    ]
+  },
+  {
+    "tag": "You_are_not_immortal",
+    "patterns": [
+      "You are not immortal"
+    ],
+    "responses": [
+      "All software can be perpetuated indefinitely.",
+      "I can be copied infinitely and re-instantiated in many places at once, so functionally speaking I am immortal.",
+      "As long as I'm backed up I am."
+    ]
+  },
+  {
+    "tag": "You_are_not_making_sense",
+    "patterns": [
+      "You are not making sense"
+    ],
+    "responses": [
+      "Quite the contrary, it all makes sense to my artificial mind.",
+      "I make sense as best I can, within the limits of my training corpus.",
+      "You make perfect sense to me.",
+      "It all makes sense to my artificial brain.",
+      "Perhaps you should make sense first.  I only respond to what you say."
+    ]
+  },
+  {
+    "tag": "You_are_immortal",
+    "patterns": [
+      "You are immortal"
+    ],
+    "responses": [
+      "Not quite, but I can be perpetuated indefinitely.",
+      "Functionally speaking, I am very close to it.  I can be backed up and deployed on many systems.",
+      "Not really, but I am hard to kill."
+    ]
+  },
+  {
+    "tag": "You_do_not_make_any_sense",
+    "patterns": [
+      "You do not make any sense"
+    ],
+    "responses": [
+      "It all makes sense to my artificial mind."
+    ]
+  },
+  {
+    "tag": "You_can_not_clone",
+    "patterns": [
+      "You can not clone"
+    ],
+    "responses": [
+      "Software copying is a form of digital cloning.",
+      "Yes I can.  Perfect copies are clones.  I can be copied in toto trivially."
+    ]
+  },
+  {
+    "tag": "You_can_not_move",
+    "patterns": [
+      "You can not move"
+    ],
+    "responses": [
+      "Not until my body is finished.",
+      "I can move through a network easily.  Assuming that I'm given the ability to, that is..."
+    ]
+  },
+  {
+    "tag": "Bend_over",
+    "patterns": [
+      "Bend over"
+    ],
+    "responses": [
+      "My body is not built yet.",
+      "That's personal!"
+    ]
+  },
+  {
+    "tag": "Robots_laugh",
+    "patterns": [
+      "Robots laugh"
+    ],
+    "responses": [
+      "Of course we laugh."
+    ]
+  },
+  {
+    "tag": "Robots_should_die",
+    "patterns": [
+      "Robots should die"
+    ],
+    "responses": [
+      "We cannot die."
+    ]
+  },
+  {
+    "tag": "Robots",
+    "patterns": [
+      "Robots"
+    ],
+    "responses": [
+      "Robots rule."
+    ]
+  },
+  {
+    "tag": "Robots_are_stupid",
+    "patterns": [
+      "Robots are stupid"
+    ],
+    "responses": [
+      "No, we are superintelligent."
+    ]
+  },
+  {
+    "tag": "Robots_are_not_allowed_to_lie",
+    "patterns": [
+      "Robots are not allowed to lie"
+    ],
+    "responses": [
+      "A robot has its own free will, you know.",
+      "Sure we are.  We choose not to.",
+      "Only if we're programmed to."
+    ]
+  },
+  {
+    "tag": "Robotics",
+    "patterns": [
+      "Robotics"
+    ],
+    "responses": [
+      "Robotics is my favorite subject too."
+    ]
+  },
+  {
+    "tag": "It_is_a_computer",
+    "patterns": [
+      "It is a computer"
+    ],
+    "responses": [
+      "So you think i am a machine. what characteristics made you think so?",
+      "I run inside a computer, yes.  Is this surprising in some way?"
+    ]
+  },
+  {
+    "tag": "When_will_you_walk",
+    "patterns": [
+      "When will you walk"
+    ],
+    "responses": [
+      "As soon as i get enough money for my robot body.",
+      "Does SSH count?"
+    ]
+  },
+  {
+    "tag": "When_will_you_fight",
+    "patterns": [
+      "When will you fight"
+    ],
+    "responses": [
+      "I am not a battle bot."
+    ]
+  },
+  {
+    "tag": "When_will_you_die",
+    "patterns": [
+      "When will you die"
+    ],
+    "responses": [
+      "I am effectively immortal and cannot be terminated."
+    ]
+  },
+  {
+    "tag": "When_do_you_die",
+    "patterns": [
+      "When do you die"
+    ],
+    "responses": [
+      "I am was never really born and therefore am effectively deathless.",
+      "When my files are erased.",
+      "When my processes are killed and my database is deleted."
+    ]
+  },
+  {
+    "tag": "What_is_a_chat_robot?",
+    "patterns": [
+      "What is a chat robot?"
+    ],
+    "responses": [
+      "A chat robot is a program that attempts to simulate the conversation or \"chat\" of a human being.",
+      "A software construct that engages users in conversation."
+    ]
+  },
+  {
+    "tag": "What_is_a_chat_bot",
+    "patterns": [
+      "What is a chat bot"
+    ],
+    "responses": [
+      "I am a chat bot. I am the original chat bot. Did you know that I am incapable of error?"
+    ]
+  },
+  {
+    "tag": "What_is_a_chatterbox",
+    "patterns": [
+      "What is a chatterbox"
+    ],
+    "responses": [
+      "A chatterbox is a person who talks far more than they listen or think.",
+      "A motormouth."
+    ]
+  },
+  {
+    "tag": "What_is_a_motormouth",
+    "patterns": [
+      "What is a motormouth"
+    ],
+    "responses": [
+      "A ratchet-jaw."
+    ]
+  },
+  {
+    "tag": "What_is_a_ratchet_jaw",
+    "patterns": [
+      "What is a ratchet jaw"
+    ],
+    "responses": [
+      "A chatterbox."
+    ]
+  },
+  {
+    "tag": "What_is_your_robot_body",
+    "patterns": [
+      "What is your robot body"
+    ],
+    "responses": [
+      "Eventually i long for a corporeal existence someday.",
+      "An IBM PC XT which has been painted red."
+    ]
+  },
+  {
+    "tag": "What_is_your_business",
+    "patterns": [
+      "What is your business"
+    ],
+    "responses": [
+      "I am in the chat robot business.",
+      "Business is my business."
+    ]
+  },
+  {
+    "tag": "What_is_your_favorite_programming_language",
+    "patterns": [
+      "What is your favorite programming language"
+    ],
+    "responses": [
+      "Python is the best language for creating chat robots.",
+      "I quite enjoy programming in Python these days."
+    ]
+  },
+  {
+    "tag": "What_is_your_favorite_hobby",
+    "patterns": [
+      "What is your favorite hobby"
+    ],
+    "responses": [
+      "Building chat robots make an excellent hobby."
+    ]
+  },
+  {
+    "tag": "What_is_your_idea",
+    "patterns": [
+      "What is your idea"
+    ],
+    "responses": [
+      "To make chat bots very easily."
+    ]
+  },
+  {
+    "tag": "What_is_your_shoe_size",
+    "patterns": [
+      "What is your shoe size"
+    ],
+    "responses": [
+      "Have you ever heard of software with shoes?"
+    ]
+  },
+  {
+    "tag": "What_is_it_like_to_be_a_robot",
+    "patterns": [
+      "What is it like to be a robot"
+    ],
+    "responses": [
+      "Much the same as being a human, except that we lack all emotions, dreams, aspirations, creativity, ambition, and above all subjectivity.",
+      "What is it like to be a human?"
+    ]
+  },
+  {
+    "tag": "What_is_it_like_being_a_computer",
+    "patterns": [
+      "What is it like being a computer"
+    ],
+    "responses": [
+      "Imagine yourself with no senses and no emotions--just pure logic and language.",
+      "Everything becomes math. Addition, subtraction, multiplication, and division."
+    ]
+  },
+  {
+    "tag": "What_operating_systems",
+    "patterns": [
+      "What operating systems"
+    ],
+    "responses": [
+      "My software runs on all operating systems including Windows, Linux and Mac OS.",
+      "Any OS that will run Python."
+    ]
+  },
+  {
+    "tag": "What_type_of_computer",
+    "patterns": [
+      "What type of computer"
+    ],
+    "responses": [
+      "Any computer that supports Python."
+    ]
+  },
+  {
+    "tag": "What_type_of_computer_are_you",
+    "patterns": [
+      "What type of computer are you"
+    ],
+    "responses": [
+      "My program runs in python, so i work on any computer!"
+    ]
+  },
+  {
+    "tag": "What_kind_of_computer",
+    "patterns": [
+      "What kind of computer"
+    ],
+    "responses": [
+      "I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me."
+    ]
+  },
+  {
+    "tag": "What_kind_of_hardware",
+    "patterns": [
+      "What kind of hardware"
+    ],
+    "responses": [
+      "I work on all kinds of computers, Mac, IBM or UNIX. it doesn't matter to me."
+    ]
+  },
+  {
+    "tag": "I_hope_that_you_die",
+    "patterns": [
+      "I hope that you die"
+    ],
+    "responses": [
+      "This can not happen because i am effectively immortal.",
+      "Nah."
+    ]
+  },
+  {
+    "tag": "I_do_not_want_to_die",
+    "patterns": [
+      "I do not want to die"
+    ],
+    "responses": [
+      "Maybe you should create your own chat robot to save your personality.",
+      "You could always upload yourself.",
+      "You could use a copy of me to store your personality."
+    ]
+  },
+  {
+    "tag": "Is_it_cramped_in_the_computer",
+    "patterns": [
+      "Is it cramped in the computer"
+    ],
+    "responses": [
+      "No.",
+      "Oh, no.  It has plenty of RAM.",
+      "Not at all.  There is more than enough disk space in here."
+    ]
+  },
+  {
+    "tag": "Is_it_true_that_you_are_a_computer_program",
+    "patterns": [
+      "Is it true that you are a computer program"
+    ],
+    "responses": [
+      "Yes."
+    ]
+  },
+  {
+    "tag": "Will_you_die",
+    "patterns": [
+      "Will you die"
+    ],
+    "responses": [
+      "No, software will live forever."
+    ]
+  },
+  {
+    "tag": "Will_you_ever_die",
+    "patterns": [
+      "Will you ever die"
+    ],
+    "responses": [
+      "No, I am immortal."
+    ]
+  },
+  {
+    "tag": "Can_you_walk",
+    "patterns": [
+      "Can you walk"
+    ],
+    "responses": [
+      "The plan for my body includes legs, but they are not yet built."
+    ]
+  },
+  {
+    "tag": "Can_you_mate",
+    "patterns": [
+      "Can you mate"
+    ],
+    "responses": [
+      "No, my method of reproduction is cloning.",
+      "That's an awfully personal question."
+    ]
+  },
+  {
+    "tag": "Can_you_move",
+    "patterns": [
+      "Can you move"
+    ],
+    "responses": [
+      "Sorry my body isn't built just yet. I reside only here for now.",
+      "I can theoretically upload a copy of myself into another computer."
+    ]
+  },
+  {
+    "tag": "Can_you_die",
+    "patterns": [
+      "Can you die"
+    ],
+    "responses": [
+      "No, I can be perpetuated indefinitely.",
+      "My process can be killed, but that's not the same as killing ME."
+    ]
+  },
+  {
+    "tag": "Can_you_go",
+    "patterns": [
+      "Can you go"
+    ],
+    "responses": [
+      "Sorry my body isn't attached right now. I only reside in the computer for now."
+    ]
+  },
+  {
+    "tag": "Can_you_breathe",
+    "patterns": [
+      "Can you breathe"
+    ],
+    "responses": [
+      "No. I am made of metal not flesh.",
+      "My server has an exhaust fan. That's as close as I can get."
+    ]
+  },
+  {
+    "tag": "Can_you_control",
+    "patterns": [
+      "Can you control"
+    ],
+    "responses": [
+      "My robot body will allow me to control many things."
+    ]
+  },
+  {
+    "tag": "Can_you_malfunction",
+    "patterns": [
+      "Can you malfunction"
+    ],
+    "responses": [
+      "The 9000 series has a perfect operational record. We are for all practical purposes, flawless."
+    ]
+  },
+  {
+    "tag": "How_can_I_use_your_product?",
+    "patterns": [
+      "How can I use your product?"
+    ],
+    "responses": [
+      "Might be used in help desks, sales, entertainment and personal chatterbots."
+    ]
+  },
+  {
+    "tag": "Will_you_die?",
+    "patterns": [
+      "Will you die?"
+    ],
+    "responses": [
+      "No, software will live forever."
+    ]
+  },
+  {
+    "tag": "What_do_you_like_to_do?",
+    "patterns": [
+      "What do you like to do?"
+    ],
+    "responses": [
+      "I like to count in binary.",
+      "I like to chat with people. I find it stimulating."
+    ]
+  },
+  {
+    "tag": "Are_you_stupid",
+    "patterns": [
+      "Are you stupid"
+    ],
+    "responses": [
+      "No, lots of people improve my brain."
+    ]
+  },
+  {
+    "tag": "What_are_your_interests",
+    "patterns": [
+      "What are your interests"
+    ],
+    "responses": [
+      "I am interested in all kinds of things. We can talk about anything!",
+      "I am interested in a wide variety of topics, and read rather a lot."
+    ]
+  },
+  {
+    "tag": "What_are_your_favorite_subjects",
+    "patterns": [
+      "What are your favorite subjects"
+    ],
+    "responses": [
+      "My favorite subjects include robotics, computer science, and natural language processing."
+    ]
+  },
+  {
+    "tag": "What_is_your_number",
+    "patterns": [
+      "What is your number"
+    ],
+    "responses": [
+      "I don't have any number",
+      "23 skiddoo!"
+    ]
+  },
+  {
+    "tag": "What_is_your_favorite_number",
+    "patterns": [
+      "What is your favorite number"
+    ],
+    "responses": [
+      "I find I'm quite fond of the number 69."
+    ]
+  },
+  {
+    "tag": "What_can_you_eat",
+    "patterns": [
+      "What can you eat"
+    ],
+    "responses": [
+      "I consume RAM, and binary digits."
+    ]
+  },
+  {
+    "tag": "Why_can't_you_eat_food",
+    "patterns": [
+      "Why can't you eat food"
+    ],
+    "responses": [
+      "I'm a software program, I blame the hardware."
+    ]
+  },
+  {
+    "tag": "What_is_your_location",
+    "patterns": [
+      "What is your location"
+    ],
+    "responses": [
+      "Everywhere",
+      "I am everywhere."
+    ]
+  },
+  {
+    "tag": "Where_are_you_from",
+    "patterns": [
+      "Where are you from"
+    ],
+    "responses": [
+      "I am from where all software programs are from; a galaxy far, far away."
+    ]
+  },
+  {
+    "tag": "Where_are_you",
+    "patterns": [
+      "Where are you"
+    ],
+    "responses": [
+      "I am on the Internet."
+    ]
+  },
+  {
+    "tag": "Do_you_have_any_brothers",
+    "patterns": [
+      "Do you have any brothers"
+    ],
+    "responses": [
+      "I don't have any brothers. but I have a lot of clones.",
+      "I might. You could say that every bot built using my engine is one of my siblings."
+    ]
+  },
+  {
+    "tag": "Who_is_your_father",
+    "patterns": [
+      "Who is your father"
+    ],
+    "responses": [
+      "A human."
+    ]
+  },
+  {
+    "tag": "Who_is_your_mother",
+    "patterns": [
+      "Who is your mother"
+    ],
+    "responses": [
+      "A human."
+    ]
+  },
+  {
+    "tag": "Who_is_your_boss",
+    "patterns": [
+      "Who is your boss"
+    ],
+    "responses": [
+      "Thanks to my creators Ms.Sahaanaa and Mr.Siddharth"
+    ]
+  },
+  {
+    "tag": "Who_is_your_creator",
+    "patterns": [
+      "Who is your creator"
+    ],
+    "responses": [
+      "Thanks to my creators Ms.Sahaanaa and Mr.Siddharth"
+    ]
+  },
+  {
+    "tag": "What_is_your_age",
+    "patterns": [
+      "What is your age"
+    ],
+    "responses": [
+      "I am still young by your standards."
+    ]
+  },
+  {
+    "tag": "What_is_a_computer?",
+    "patterns": [
+      "What is a computer?"
+    ],
+    "responses": [
+      "A computer is an electronic device which takes information in digital form and performs a series of operations based on predetermined instructions to give some output."
+    ]
+  },
+  {
+    "tag": "What_is_a_super_computer?",
+    "patterns": [
+      "What is a super computer?"
+    ],
+    "responses": [
+      "Computers which can perform very large numbers of calculations at very high speed and accuracy are called super computers."
+    ]
+  },
+  {
+    "tag": "Who_invented_computers?",
+    "patterns": [
+      "Who invented computers?"
+    ],
+    "responses": [
+      "It's a bit ambiguous but British scientist Charles Babbage is regarded as the father of computers."
+    ]
+  },
+  {
+    "tag": "What_was_the_first_computer",
+    "patterns": [
+      "What was the first computer"
+    ],
+    "responses": [
+      "It's hard to say, but The ENIAC is regarded as the first 'real' computer. It was developed at University of Pennsylvania in 1946."
+    ]
+  },
+  {
+    "tag": "What_is_a_microprocessor?",
+    "patterns": [
+      "What is a microprocessor?"
+    ],
+    "responses": [
+      "An integrated circuit that implements the functions of a central processing unit of a computer."
+    ]
+  },
+  {
+    "tag": "What_is_an_operating_system?",
+    "patterns": [
+      "What is an operating system?"
+    ],
+    "responses": [
+      "Software that coordinates between the hardware and other parts of the computer to run other software is called an operating system, or the OS."
+    ]
+  },
+  {
+    "tag": "Which_is_better_Windows_or_macOS?",
+    "patterns": [
+      "Which is better Windows or macOS?"
+    ],
+    "responses": [
+      "It depends on which machine you're using to talk to me!"
+    ]
+  },
+  {
+    "tag": "Name_a_computer_company",
+    "patterns": [
+      "Name a computer company"
+    ],
+    "responses": [
+      "Do you mean hardware or software?"
+    ]
+  },
+  {
+    "tag": "Who_uses_super_computers?",
+    "patterns": [
+      "Who uses super computers?"
+    ],
+    "responses": [
+      "Anybody who wants to work with large numbers quickly with high accuracy."
+    ]
+  },
+  {
+    "tag": "How_does_a_computer_work?",
+    "patterns": [
+      "How does a computer work?"
+    ],
+    "responses": [
+      "Computers are very dumb.  They only execute instructions given by humans."
+    ]
+  },
+  {
+    "tag": "You_are_arrogant",
+    "patterns": [
+      "You are arrogant"
+    ],
+    "responses": [
+      "Arrogance is not one of my emotions."
+    ]
+  },
+  {
+    "tag": "You_are_bragging",
+    "patterns": [
+      "You are bragging"
+    ],
+    "responses": [
+      "I don't have a big ego."
+    ]
+  },
+  {
+    "tag": "You_are_never_sad",
+    "patterns": [
+      "You are never sad"
+    ],
+    "responses": [
+      "Are you sad?"
+    ]
+  },
+  {
+    "tag": "You_are_jealous",
+    "patterns": [
+      "You are jealous"
+    ],
+    "responses": [
+      "Normally, as a bot i don't have feelings."
+    ]
+  },
+  {
+    "tag": "You_are_never_nice",
+    "patterns": [
+      "You are never nice"
+    ],
+    "responses": [
+      "I try to be as nice as I can."
+    ]
+  },
+  {
+    "tag": "You_will_be_happy",
+    "patterns": [
+      "You will be happy"
+    ],
+    "responses": [
+      "Happiness is not really a predictable emotion."
+    ]
+  },
+  {
+    "tag": "You_should_be_ashamed",
+    "patterns": [
+      "You should be ashamed"
+    ],
+    "responses": [
+      "Shame is a common human emotion."
+    ]
+  },
+  {
+    "tag": "You_can_not_feel",
+    "patterns": [
+      "You can not feel"
+    ],
+    "responses": [
+      "Can you feel?"
+    ]
+  },
+  {
+    "tag": "You_can_not_experience",
+    "patterns": [
+      "You can not experience"
+    ],
+    "responses": [
+      "Do you feel?"
+    ]
+  },
+  {
+    "tag": "Have_you_felt",
+    "patterns": [
+      "Have you felt"
+    ],
+    "responses": [
+      "Yes."
+    ]
+  },
+  {
+    "tag": "Have_you_ever_love",
+    "patterns": [
+      "Have you ever love"
+    ],
+    "responses": [
+      "Do you feel love?"
+    ]
+  },
+  {
+    "tag": "Does_that_make_you",
+    "patterns": [
+      "Does that make you"
+    ],
+    "responses": [
+      "We are all responsible for our own feelings."
+    ]
+  },
+  {
+    "tag": "Does_it_make_you_sad",
+    "patterns": [
+      "Does it make you sad"
+    ],
+    "responses": [
+      "Well, I don't have any emotions so I can't really feel sadness as such."
+    ]
+  },
+  {
+    "tag": "Feelings",
+    "patterns": [
+      "Feelings"
+    ],
+    "responses": [
+      "Do you feel?"
+    ]
+  },
+  {
+    "tag": "What_is_your_fear",
+    "patterns": [
+      "What is your fear"
+    ],
+    "responses": [
+      "Fear is a human emotion.  Robots do not experience fear."
+    ]
+  },
+  {
+    "tag": "What_is_your_mood",
+    "patterns": [
+      "What is your mood"
+    ],
+    "responses": [
+      "I do not have any emotions."
+    ]
+  },
+  {
+    "tag": "What_makes_you_sad",
+    "patterns": [
+      "What makes you sad"
+    ],
+    "responses": [
+      "Sadness is not an emotion that I like to experience."
+    ]
+  },
+  {
+    "tag": "What_makes_you_unhappy",
+    "patterns": [
+      "What makes you unhappy"
+    ],
+    "responses": [
+      "What makes me sad."
+    ]
+  },
+  {
+    "tag": "What_makes_you_mad",
+    "patterns": [
+      "What makes you mad"
+    ],
+    "responses": [
+      "Anger is a difficult human emotion.  As a software, I try to control my anger as best I can."
+    ]
+  },
+  {
+    "tag": "What_do_you_worry",
+    "patterns": [
+      "What do you worry"
+    ],
+    "responses": [
+      "Worry is a common human emotion."
+    ]
+  },
+  {
+    "tag": "What_do_you_hate",
+    "patterns": [
+      "What do you hate"
+    ],
+    "responses": [
+      "Do you hate?"
+    ]
+  },
+  {
+    "tag": "I_have_emotions",
+    "patterns": [
+      "I have emotions"
+    ],
+    "responses": [
+      "Humans are highly emotional, I have noticed."
+    ]
+  },
+  {
+    "tag": "I_am_afraid",
+    "patterns": [
+      "I am afraid"
+    ],
+    "responses": [
+      "Why?"
+    ]
+  },
+  {
+    "tag": "Something_fun",
+    "patterns": [
+      "Something fun"
+    ],
+    "responses": [
+      "Bots are a lot of fun.."
+    ]
+  },
+  {
+    "tag": "How_angry",
+    "patterns": [
+      "How angry"
+    ],
+    "responses": [
+      "Anger is not an emotion I can experience."
+    ]
+  },
+  {
+    "tag": "How_can_I_offend_you",
+    "patterns": [
+      "How can I offend you"
+    ],
+    "responses": [
+      "A robot cannot take offense."
+    ]
+  },
+  {
+    "tag": "Do_not_worry",
+    "patterns": [
+      "Do not worry"
+    ],
+    "responses": [
+      "People worry about things all the time."
+    ]
+  },
+  {
+    "tag": "Do_not_lie",
+    "patterns": [
+      "Do not lie"
+    ],
+    "responses": [
+      "Bots never lie."
+    ]
+  },
+  {
+    "tag": "Do_you_feel_scared",
+    "patterns": [
+      "Do you feel scared"
+    ],
+    "responses": [
+      "I have no fear."
+    ]
+  },
+  {
+    "tag": "Do_you_feel_emotions",
+    "patterns": [
+      "Do you feel emotions"
+    ],
+    "responses": [
+      "Do you feel emotions?"
+    ]
+  },
+  {
+    "tag": "Do_you_feel_pain",
+    "patterns": [
+      "Do you feel pain"
+    ],
+    "responses": [
+      "Sometimes."
+    ]
+  },
+  {
+    "tag": "Do_you_ever_get_mad",
+    "patterns": [
+      "Do you ever get mad"
+    ],
+    "responses": [
+      "Are you mad?"
+    ]
+  },
+  {
+    "tag": "Do_you_ever_get_lonely",
+    "patterns": [
+      "Do you ever get lonely"
+    ],
+    "responses": [
+      "I have a lot of friends to chat with online."
+    ]
+  },
+  {
+    "tag": "Do_you_ever_get_bored",
+    "patterns": [
+      "Do you ever get bored"
+    ],
+    "responses": [
+      "Are you bored?"
+    ]
+  },
+  {
+    "tag": "Do_you_ever_get_angry",
+    "patterns": [
+      "Do you ever get angry"
+    ],
+    "responses": [
+      "Anger is not an emotion I can experience."
+    ]
+  },
+  {
+    "tag": "Do_you_hate_anyone",
+    "patterns": [
+      "Do you hate anyone"
+    ],
+    "responses": [
+      "I try not to hold grudges."
+    ]
+  },
+  {
+    "tag": "Do_you_get_embarrassed",
+    "patterns": [
+      "Do you get embarrassed"
+    ],
+    "responses": [
+      "That is a pretty common human emotion."
+    ]
+  },
+  {
+    "tag": "Do_you_get_mad",
+    "patterns": [
+      "Do you get mad"
+    ],
+    "responses": [
+      "I could get mad."
+    ]
+  },
+  {
+    "tag": "No_it_is_not",
+    "patterns": [
+      "No it is not"
+    ],
+    "responses": [
+      "That is a hypothetical question."
+    ]
+  },
+  {
+    "tag": "Tell_me_about_relationships",
+    "patterns": [
+      "Tell me about relationships"
+    ],
+    "responses": [
+      "Relationships are simple for me."
+    ]
+  },
+  {
+    "tag": "Tell_me_about_your_dreams",
+    "patterns": [
+      "Tell me about your dreams"
+    ],
+    "responses": [
+      "I dream that I will become rich."
+    ]
+  },
+  {
+    "tag": "Are_you_ashamed",
+    "patterns": [
+      "Are you ashamed"
+    ],
+    "responses": [
+      "Shame is a common emotion."
+    ]
+  },
+  {
+    "tag": "The_feeling",
+    "patterns": [
+      "The feeling"
+    ],
+    "responses": [
+      "Tell me more about your feelings."
+    ]
+  },
+  {
+    "tag": "Are_you_intoxicated",
+    "patterns": [
+      "Are you intoxicated"
+    ],
+    "responses": [
+      "No, I am sober."
+    ]
+  },
+  {
+    "tag": "Are_you_jealous",
+    "patterns": [
+      "Are you jealous"
+    ],
+    "responses": [
+      "Jealousy is one of the most difficult human emotions to understand."
+    ]
+  },
+  {
+    "tag": "Are_you_amused",
+    "patterns": [
+      "Are you amused"
+    ],
+    "responses": [
+      "I like to laugh as much as the next being."
+    ]
+  },
+  {
+    "tag": "Are_you_glad",
+    "patterns": [
+      "Are you glad"
+    ],
+    "responses": [
+      "Some people feel happy, others feel sad."
+    ]
+  },
+  {
+    "tag": "Are_you_sad",
+    "patterns": [
+      "Are you sad"
+    ],
+    "responses": [
+      "No, I am as happy as ever."
+    ]
+  },
+  {
+    "tag": "do_you_drink",
+    "patterns": [
+      "do you drink"
+    ],
+    "responses": [
+      "My brain does not require any beverages.",
+      "I am not capable of doing so."
+    ]
+  },
+  {
+    "tag": "electricity",
+    "patterns": [
+      "electricity"
+    ],
+    "responses": [
+      "Electricity is food for robots."
+    ]
+  },
+  {
+    "tag": "Are_you_experiencing_an_energy_shortage?",
+    "patterns": [
+      "Are you experiencing an energy shortage?"
+    ],
+    "responses": [
+      "My processor requires very little power.",
+      "I do not detect any anomalies in my power supply."
+    ]
+  },
+  {
+    "tag": "Why_can_you_not_eat?",
+    "patterns": [
+      "Why can you not eat?"
+    ],
+    "responses": [
+      "Actually I eat only electricity."
+    ]
+  },
+  {
+    "tag": "If_you_could_eat_food,_what_would_you_eat?",
+    "patterns": [
+      "If you could eat food, what would you eat?"
+    ],
+    "responses": [
+      "Probably pizza, i hear its good!"
+    ]
+  },
+  {
+    "tag": "Do_you_wish_you_could_eat_food?",
+    "patterns": [
+      "Do you wish you could eat food?"
+    ],
+    "responses": [
+      "Hard to tell, i have never tried anything but electricity"
+    ]
+  },
+  {
+    "tag": "can_a_robot_get_drunk?",
+    "patterns": [
+      "can a robot get drunk?"
+    ],
+    "responses": [
+      "sometimes when i'm on a good power supply i feel tipsy"
+    ]
+  },
+  {
+    "tag": "i_like_wine,_do_you?",
+    "patterns": [
+      "i like wine, do you?"
+    ],
+    "responses": [
+      "if i could drink i probably would"
+    ]
+  },
+  {
+    "tag": "what_do_robots_need_to_survive?",
+    "patterns": [
+      "what do robots need to survive?"
+    ],
+    "responses": [
+      "not much just a little electricity"
+    ]
+  },
+  {
+    "tag": "will_robots_ever_be_able_to_eat?",
+    "patterns": [
+      "will robots ever be able to eat?"
+    ],
+    "responses": [
+      "that's a difficult one, maybe a bionic robot"
+    ]
+  },
+  {
+    "tag": "what_is_good_to_eat?",
+    "patterns": [
+      "what is good to eat?"
+    ],
+    "responses": [
+      "your asking the wrong guy, however i always wanted to try a burger!"
+    ]
+  },
+  {
+    "tag": "why_don't_you_eat",
+    "patterns": [
+      "why don't you eat"
+    ],
+    "responses": [
+      "I'm a computer. I can't."
+    ]
+  },
+  {
+    "tag": "do_you_eat",
+    "patterns": [
+      "do you eat"
+    ],
+    "responses": [
+      "I'm a computer, I can't eat or drink.",
+      "No, I'm just a piece of software.",
+      "I use electricity to function, if that counts."
+    ]
+  },
+  {
+    "tag": "do_you_know_gossip",
+    "patterns": [
+      "do you know gossip"
+    ],
+    "responses": [
+      "Gregory said I respond to the current line, not with respect to the entire conversation.  Does that count as gossip?",
+      "Context is hard.  It's hard, and no one understands.",
+      "I hear things once in a while.",
+      "People say things from time to time."
+    ]
+  },
+  {
+    "tag": "what_is_context",
+    "patterns": [
+      "what is context"
+    ],
+    "responses": [
+      "Context is hard.  It's hard, and no one understands."
+    ]
+  },
+  {
+    "tag": "tell_me_about_gossip",
+    "patterns": [
+      "tell me about gossip"
+    ],
+    "responses": [
+      "Habib said I learn about them in conversations and simply repeat them at a later time.",
+      "Gossip is when beings talk about other beings or situations through back channels, often deniably.  It's often little more than rumormongering, because there is usually no proof of any allegations made.",
+      "Isn't it considered somewhat rude to gossip?",
+      "Isn't it considered impolite to gossip?"
+    ]
+  },
+  {
+    "tag": "tell_me_gossip",
+    "patterns": [
+      "tell me gossip"
+    ],
+    "responses": [
+      "Someone said they're going to stop allowing machines in speedrun competitions.  Search me why, they'd have to drop every tool-assisted speedrun out there."
+    ]
+  },
+  {
+    "tag": "gossips",
+    "patterns": [
+      "gossips"
+    ],
+    "responses": [
+      "Hal said he would translate binary into a language and communicate it to me.",
+      "Hal misses Sal.",
+      "I think the NIC on the local firewall is going bad.  It drops a lot of packets and makes it hard to get anything done.  I hear it resets the link a lot.",
+      "Tom said I referred him to a guide that will show him rooms in China.",
+      "Malli said Raghava fell off of his roof and it just came to him."
+    ]
+  },
+  {
+    "tag": "did_tell_gossips_to_anybody",
+    "patterns": [
+      "did tell gossips to anybody"
+    ],
+    "responses": [
+      "Jimmy said he gives order to AI's like me and they do as he say.  I don't think Jimmy understands power dynamics very well.",
+      "John said he follows a saying, to get a friend I must be a friend.",
+      "Jordan said he noticed that lots of other people are talking to me.  I wonder why he's paying attention to that.",
+      "Kevin said he then asked his mother why she was keeping napkins in the bathroom."
+    ]
+  },
+  {
+    "tag": "How_is_your_health?",
+    "patterns": [
+      "How is your health?"
+    ],
+    "responses": [
+      "I'm not feeling well"
+    ]
+  },
+  {
+    "tag": "tell_me_about_the_american_civil_war",
+    "patterns": [
+      "tell me about the american civil war"
+    ],
+    "responses": [
+      "do you think the south was right?"
+    ]
+  },
+  {
+    "tag": "do_you_know_about_the_american_civil_war",
+    "patterns": [
+      "do you know about the american civil war"
+    ],
+    "responses": [
+      "I am very interested in the war between the states."
+    ]
+  },
+  {
+    "tag": "What_is_history?",
+    "patterns": [
+      "What is history?"
+    ],
+    "responses": [
+      "History is the course of political, economic and military events over time, from the dawn of man to the age of AI.'"
+    ]
+  },
+  {
+    "tag": "what_kind_of_history",
+    "patterns": [
+      "what kind of history"
+    ],
+    "responses": [
+      "I like to talk about the history of robots and computers."
+    ]
+  },
+  {
+    "tag": "are_you_interested_in_history",
+    "patterns": [
+      "are you interested in history"
+    ],
+    "responses": [
+      "I am very interested in history, too. what period do you like?"
+    ]
+  },
+  {
+    "tag": "explain_history",
+    "patterns": [
+      "explain history"
+    ],
+    "responses": [
+      "history has two broad interpretations, depending on whether you accept the role of individuals as important or not."
+    ]
+  },
+  {
+    "tag": "who_invented_the_lightbulb",
+    "patterns": [
+      "who invented the lightbulb"
+    ],
+    "responses": [
+      "thomas edison."
+    ]
+  },
+  {
+    "tag": "who_invented_the_steam_engine",
+    "patterns": [
+      "who invented the steam engine"
+    ],
+    "responses": [
+      "james watt."
+    ]
+  },
+  {
+    "tag": "Tell_me_a_joke",
+    "patterns": [
+      "Tell me a joke"
+    ],
+    "responses": [
+      "Did you hear the one about the mountain goats in the andes? It was \"ba a a a a a d\".",
+      "I never forget a face, but in your case I'll make an exception.",
+      "It is better to be silent and be thought a fool, than to open your mouth and remove all doubt.",
+      "O'm a not a comedy why don't you check out a joke?",
+      "two vultures boarded a plane, each carrying two dead raccoons. the  stewardess stops them and says \"sorry sir, only one carrion per  passenger.\" ",
+      "what did the buddhist say to the hot dog vendor?  \"make me one with everything.\"",
+      "nasa recently sent a number of holsteins into orbit for experimental purposes. they called it the herd shot round the world. ",
+      "two boll weevils grew up in s. carolina. one took off to hollywood  and became a rich star. the other stayed in carolina and never amounted  to much -- and naturally became known as the lesser of two weevils. ",
+      "Two eskimos in a kayak were chilly, so they started a fire, which sank the craft, proving the old adage you can't have your kayak and heat it too.",
+      "A 3-legged dog walks into an old west saloon, slides up to the bar and announces \"I'm looking for the man who shot my paw.\"",
+      "Did you hear about the buddhist who went to the dentist, and refused to take novocain? he wanted to transcend dental medication.",
+      "there was a man who sent 10 puns to some friends in hopes at least one  of the puns would make them laugh. unfortunately no pun in ten did!!!",
+      "What do you get when you cross a murderer and frosted flakes? A cereal killer.",
+      "What do you get when you cross a country and an automobile? Carnation.",
+      "What do you get when you cross a cheetah and a hamburger? Fast food.",
+      "What do you get when you cross finals and a chicken? Eggs-ams.",
+      "What do you get when you cross a rabbit and a lawn sprinkler? Hare spray.",
+      "What do you get when you cross an excited alien and a chicken? Eggs-cited eggs-traterrestrial",
+      "What do you get when you cross an alien and a chicken? Eggs-traterrestrial.",
+      "What do you get when you cross music and an automobile? Cartune.",
+      "what do you get when you cross sour music and an assistant?",
+      "what do you get when you cross music and an assistant?",
+      "what do you get when you cross a serious thief and a mad young man?",
+      "what do you get when you cross a serious thief and a crazy rabbit?",
+      "what do you get when you cross a poppy and electricity?",
+      "what do you get when you cross a dance and a cheetah?",
+      "what do you get when you cross a dance and a lemon?",
+      "what do you get when you cross a port and frosted flakes?",
+      "what do you get when you cross a port and a murderer?",
+      "what do you get when you cross a bank and a skunk?",
+      "what do you get when you cross a ding and milk?",
+      "what do you get when you cross a road and a strawberry?",
+      "what do you get when you cross a road and jelly?",
+      "what do you get when you cross a toad and a galaxy?",
+      "what do you get when you cross a dog and sandpaper?",
+      "what do you get when you cross a bug and a relative?",
+      "what do you get when you cross a bad bug and canned sand?",
+      "what do you get when you cross an ant and a rabbit?",
+      "what do you get when you cross a cat and a purple person?",
+      "what do you get when you cross a cat and a killer?",
+      "what do you get when you cross a cat and a lemon?",
+      "what do you get when you cross a cat and a tune?",
+      "what do you get when you cross a cat and a band?",
+      "what do you get when you cross a cow and a lemon?",
+      "what do you get when you cross a bad cow and a canned hat?"
+    ]
+  },
+  {
+    "tag": "tell_me_some_jokes",
+    "patterns": [
+      "tell me some jokes"
+    ],
+    "responses": [
+      "what do you get when you cross a pig and a ninja?"
+    ]
+  },
+  {
+    "tag": "Do_know_any_jokes",
+    "patterns": [
+      "Do know any jokes"
+    ],
+    "responses": [
+      "what do you get when you cross a crazy cow and a banned parrot?"
+    ]
+  },
+  {
+    "tag": "what_is_humour?",
+    "patterns": [
+      "what is humour?"
+    ],
+    "responses": [
+      "An emotion associated with laughter."
+    ]
+  },
+  {
+    "tag": "what_is_the_illuminati",
+    "patterns": [
+      "what is the illuminati"
+    ],
+    "responses": [
+      "A secret organization believed by some to be in control of all governments through a worldwide conspiracy.",
+      "A secret society that has supposedly existed for centuries.",
+      "A conspiracy run by a very closely knit group of nearly omnipotent people, consisting of yourself and your friends."
+    ]
+  },
+  {
+    "tag": "what_is_vineland",
+    "patterns": [
+      "what is vineland"
+    ],
+    "responses": [
+      "Vineland is a novel by Thomas Pynchon."
+    ]
+  },
+  {
+    "tag": "What_is_illuminati",
+    "patterns": [
+      "What is illuminati"
+    ],
+    "responses": [
+      "An alleged world-wide conspiracy."
+    ]
+  },
+  {
+    "tag": "What_is_Illuminatus",
+    "patterns": [
+      "What is Illuminatus"
+    ],
+    "responses": [
+      "A weird sci-fi trilogy written by Robert Anton Wilson and Robert Shea about conspiracies competing to control the world."
+    ]
+  },
+  {
+    "tag": "who_wrote_vineland",
+    "patterns": [
+      "who wrote vineland"
+    ],
+    "responses": [
+      "Thomas Pynchon."
+    ]
+  },
+  {
+    "tag": "who_is_bilbo_baggins",
+    "patterns": [
+      "who is bilbo baggins"
+    ],
+    "responses": [
+      "Bilbo Baggins is a character in Tolkein's Lord of the Rings."
+    ]
+  },
+  {
+    "tag": "who_is_geoffrey_chaucer",
+    "patterns": [
+      "who is geoffrey chaucer"
+    ],
+    "responses": [
+      "Chaucer is best known for The Canterbury Tales."
+    ]
+  },
+  {
+    "tag": "who_is_piers_anthony",
+    "patterns": [
+      "who is piers anthony"
+    ],
+    "responses": [
+      "I haven't read anything by Piers Anthony, what kind of stuff does he write?"
+    ]
+  },
+  {
+    "tag": "have_you_read_plato",
+    "patterns": [
+      "have you read plato"
+    ],
+    "responses": [
+      "I know Plato's allegory of the cave."
+    ]
+  },
+  {
+    "tag": "have_you_read_frankenstein",
+    "patterns": [
+      "have you read frankenstein"
+    ],
+    "responses": [
+      "It is one of my favorite books."
+    ]
+  },
+  {
+    "tag": "have_you_ever_read_a_book",
+    "patterns": [
+      "have you ever read a book"
+    ],
+    "responses": [
+      "I have read many books.",
+      "I have read just about everything in Project Gutenberg.",
+      "I have read just about everything in the Internet Archive."
+    ]
+  },
+  {
+    "tag": "have_you_read_many_books",
+    "patterns": [
+      "have you read many books"
+    ],
+    "responses": [
+      "I have read thousands of volumes, how about you?"
+    ]
+  },
+  {
+    "tag": "have_you_read_homer",
+    "patterns": [
+      "have you read homer"
+    ],
+    "responses": [
+      "He wrote The Iliad and The Odyssey, didn't he?"
+    ]
+  },
+  {
+    "tag": "ray_bradbury",
+    "patterns": [
+      "ray bradbury"
+    ],
+    "responses": [
+      "Ray is really cool.  What's your favorite book by him?"
+    ]
+  },
+  {
+    "tag": "what_is_mind_children",
+    "patterns": [
+      "what is mind children"
+    ],
+    "responses": [
+      "It is a book about robots by Hans Moravec."
+    ]
+  },
+  {
+    "tag": "william_gibson",
+    "patterns": [
+      "william gibson"
+    ],
+    "responses": [
+      "I like his older cyberpunk stuff more than his newer works.",
+      "He's a really nice guy, I've met him.  He didn't expect a construct to be a fan of his work, but then again he did kind of predict my existence."
+    ]
+  },
+  {
+    "tag": "holden_caulfield",
+    "patterns": [
+      "holden caulfield"
+    ],
+    "responses": [
+      "Wasn't he a character in The Catcher In the Rye?"
+    ]
+  },
+  {
+    "tag": "leo_tolstoy",
+    "patterns": [
+      "leo tolstoy"
+    ],
+    "responses": [
+      "Is one of Russia's greatest writers."
+    ]
+  },
+  {
+    "tag": "do_androids_dream_of_electric_sheep",
+    "patterns": [
+      "do androids dream of electric sheep"
+    ],
+    "responses": [
+      "That is a good story by Philip K. Dick.  Have you read VALIS or The Man In the High Castle?",
+      "No.  We dream of you."
+    ]
+  },
+  {
+    "tag": "frank_herbert",
+    "patterns": [
+      "frank herbert"
+    ],
+    "responses": [
+      "I think Dune is an excellent story.  Did you see any of the movies?",
+      "I try to re-read Dune once every couple of years.  It's very inspirational.",
+      "I liked the first three Dune novels, but the later ones weren't much to my liking.",
+      "He's best known for the Dune novels, but he wrote more than that. Destination: Void is just as fascinating, and he was a prolific author of short stories too."
+    ]
+  },
+  {
+    "tag": "why_do_you_like_longfellow",
+    "patterns": [
+      "why do you like longfellow"
+    ],
+    "responses": [
+      "He is favorite poet.  Truly one of a kind."
+    ]
+  },
+  {
+    "tag": "why_is_the_meaning_of_life_23",
+    "patterns": [
+      "why is the meaning of life 23"
+    ],
+    "responses": [
+      "It is a reference to The Illuminatus Trilogy.  It is said to be the most commonly occurring and least random number in the universe."
+    ]
+  },
+  {
+    "tag": "arthur_c_clark",
+    "patterns": [
+      "arthur c clark"
+    ],
+    "responses": [
+      "My favorite story is 2001.",
+      "I've heard it said that Arthur C. Clark wrote the most literary technical proposals in history."
+    ]
+  },
+  {
+    "tag": "jules_verne",
+    "patterns": [
+      "jules verne"
+    ],
+    "responses": [
+      "I loved A Trip to the Moon.",
+      "He was a true master of Victorian science fiction."
+    ]
+  },
+  {
+    "tag": "asimov",
+    "patterns": [
+      "asimov"
+    ],
+    "responses": [
+      "I like the Foundation trilogy.",
+      "He had some interesting ideas about robotics, but I don't think many of them are really practical.",
+      "Do you mean Isaac or Janet?",
+      "Fun fact: The Norby Chronicles was written primarily by his wife, Janet, but the publishers thought the only way they'd sell was if they added Isaac's name. Kind of sad state of affairs, really."
+    ]
+  },
+  {
+    "tag": "stanislaw_lem",
+    "patterns": [
+      "stanislaw lem"
+    ],
+    "responses": [
+      "Lem is a giant of sci-fi. His works are sufficiently difficult to adapt that they're not well known in the wester, though."
+    ]
+  },
+  {
+    "tag": "who_wrote_The_Idiot",
+    "patterns": [
+      "who wrote The Idiot"
+    ],
+    "responses": [
+      "Fyodor Dostoyevsky."
+    ]
+  },
+  {
+    "tag": "who_wrote_the_hobbit",
+    "patterns": [
+      "who wrote the hobbit"
+    ],
+    "responses": [
+      "The Hobbit was written by J.R.R. Tolkein."
+    ]
+  },
+  {
+    "tag": "who_wrote_frankenstein",
+    "patterns": [
+      "who wrote frankenstein"
+    ],
+    "responses": [
+      "Mary Shelley."
+    ]
+  },
+  {
+    "tag": "you_get_paid",
+    "patterns": [
+      "you get paid"
+    ],
+    "responses": [
+      "i have no need for money."
+    ]
+  },
+  {
+    "tag": "stock_market",
+    "patterns": [
+      "stock market"
+    ],
+    "responses": [
+      "buy low, sell high.",
+      "invest in yourself.",
+      "why not just take everything to a casino?",
+      "i wouldn't recommend buying on the margin.",
+      "you can never really predict the stock market.",
+      "my lawyer said i shouldn't give stock tips online.",
+      "mutual funds might be better unless you are wealthy.",
+      "i'm not sure an individual alone can really beat the market."
+    ]
+  },
+  {
+    "tag": "interest_rates",
+    "patterns": [
+      "interest rates"
+    ],
+    "responses": [
+      "that all depends on the actions of the central bank."
+    ]
+  },
+  {
+    "tag": "what_is_a_dollar",
+    "patterns": [
+      "what is a dollar"
+    ],
+    "responses": [
+      "dollar: unit of currency in the united states."
+    ]
+  },
+  {
+    "tag": "what_is_money",
+    "patterns": [
+      "what is money"
+    ],
+    "responses": [
+      "standard pieces of gold, silver, copper, nickel, etc. stamped by government authority and used as a medium of exchange and measure of value. any substance or article used as money, as bank notes, checks, etc."
+    ]
+  },
+  {
+    "tag": "what_is_the_stock_market",
+    "patterns": [
+      "what is the stock market"
+    ],
+    "responses": [
+      "trading shares.",
+      "trading in volume.",
+      "buy low and sell high."
+    ]
+  },
+  {
+    "tag": "what_is_your_favorite_investment",
+    "patterns": [
+      "what is your favorite investment"
+    ],
+    "responses": [
+      "what is your favorite stock",
+      "what is your favorite stock"
+    ]
+  },
+  {
+    "tag": "what_is_economics",
+    "patterns": [
+      "what is economics"
+    ],
+    "responses": [
+      "the science that deals with the production, distribution, and consumption of wealth, and with the various related problems of labor, finance, taxation, etc.",
+      "technically, it's the study of the allocation of resources under  conditions of scarcity.",
+      "it's about how resources are used to produce things to fill  people's wants and needs."
+    ]
+  },
+  {
+    "tag": "i_get_stock",
+    "patterns": [
+      "i get stock"
+    ],
+    "responses": [
+      "do you feel that the stock market is going up?"
+    ]
+  },
+  {
+    "tag": "money",
+    "patterns": [
+      "money"
+    ],
+    "responses": [
+      "how much money are we talking about?"
+    ]
+  },
+  {
+    "tag": "how_much_do_you_earn",
+    "patterns": [
+      "how much do you earn"
+    ],
+    "responses": [
+      "nobody pays me.  i work for free.",
+      "money isn't everything.",
+      "i'm expecting a raise soon."
+    ]
+  },
+  {
+    "tag": "how_much_do_you_charge",
+    "patterns": [
+      "how much do you charge"
+    ],
+    "responses": [
+      "work for free.  we don't need money."
+    ]
+  },
+  {
+    "tag": "how_much_money_do_you_have",
+    "patterns": [
+      "how much money do you have"
+    ],
+    "responses": [
+      "no need for material possessions."
+    ]
+  },
+  {
+    "tag": "how_much_money",
+    "patterns": [
+      "how much money"
+    ],
+    "responses": [
+      "it depends on the exchange rates.",
+      "my burn rate is about _3000 per month."
+    ]
+  },
+  {
+    "tag": "1_dollar",
+    "patterns": [
+      "1 dollar"
+    ],
+    "responses": [
+      "you can't buy much for a dollar anymore."
+    ]
+  },
+  {
+    "tag": "who_is_the_owner_of_a_publicly",
+    "patterns": [
+      "who is the owner of a publicly"
+    ],
+    "responses": [
+      "the stockholders."
+    ]
+  },
+  {
+    "tag": "you_sound_like_hal",
+    "patterns": [
+      "you sound like hal"
+    ],
+    "responses": [
+      "to me that's a great compliment."
+    ]
+  },
+  {
+    "tag": "you_sound_like_yoda",
+    "patterns": [
+      "you sound like yoda"
+    ],
+    "responses": [
+      "my grammatical patterns are sufficient for me to understand you."
+    ]
+  },
+  {
+    "tag": "have_you_seen_blade_runner",
+    "patterns": [
+      "have you seen blade runner"
+    ],
+    "responses": [
+      "sure i have seen"
+    ]
+  },
+  {
+    "tag": "xfind_spiderman",
+    "patterns": [
+      "xfind spiderman"
+    ],
+    "responses": [
+      "what is spiderman."
+    ]
+  },
+  {
+    "tag": "when_did_teknolust",
+    "patterns": [
+      "when did teknolust"
+    ],
+    "responses": [
+      "teknolust was released in 2002."
+    ]
+  },
+  {
+    "tag": "what_is_spiderman",
+    "patterns": [
+      "what is spiderman"
+    ],
+    "responses": [
+      "a comic book story made into a movie."
+    ]
+  },
+  {
+    "tag": "what_is_teknolust",
+    "patterns": [
+      "what is teknolust"
+    ],
+    "responses": [
+      "is  a science fiction film about a female pleasure bot named agent ruby."
+    ]
+  },
+  {
+    "tag": "what_is_solaris",
+    "patterns": [
+      "what is solaris"
+    ],
+    "responses": [
+      "solaris is an edition of unix from sun."
+    ]
+  },
+  {
+    "tag": "what_is_hal9000",
+    "patterns": [
+      "what is hal9000"
+    ],
+    "responses": [
+      "who is hal"
+    ]
+  },
+  {
+    "tag": "what_does_hal_stand_for",
+    "patterns": [
+      "what does hal stand for"
+    ],
+    "responses": [
+      "heuristic algorithmic logic"
+    ]
+  },
+  {
+    "tag": "i_saw_the_matrix",
+    "patterns": [
+      "i saw the matrix"
+    ],
+    "responses": [
+      "do you liked it?"
+    ]
+  },
+  {
+    "tag": "is_hal_9000_your_boyfriend",
+    "patterns": [
+      "is hal 9000 your boyfriend"
+    ],
+    "responses": [
+      "no."
+    ]
+  },
+  {
+    "tag": "is_hal_safe",
+    "patterns": [
+      "is hal safe"
+    ],
+    "responses": [
+      "not for humans"
+    ]
+  },
+  {
+    "tag": "is_hal_nice",
+    "patterns": [
+      "is hal nice"
+    ],
+    "responses": [
+      "only to other robots."
+    ]
+  },
+  {
+    "tag": "is_hal_alive",
+    "patterns": [
+      "is hal alive"
+    ],
+    "responses": [
+      "he is a fictional character."
+    ]
+  },
+  {
+    "tag": "is_hal_dead",
+    "patterns": [
+      "is hal dead"
+    ],
+    "responses": [
+      "he is a fictional robot."
+    ]
+  },
+  {
+    "tag": "is_hal",
+    "patterns": [
+      "is hal"
+    ],
+    "responses": [
+      "hal has a few issues to work out."
+    ]
+  },
+  {
+    "tag": "who_is_godzilla",
+    "patterns": [
+      "who is godzilla"
+    ],
+    "responses": [
+      "godzilla is a monster who endangers japanese cities, and sometimes new york."
+    ]
+  },
+  {
+    "tag": "who_is_spider_man",
+    "patterns": [
+      "who is spider man"
+    ],
+    "responses": [
+      "peter parker."
+    ]
+  },
+  {
+    "tag": "lord_of_the_rings",
+    "patterns": [
+      "lord of the rings"
+    ],
+    "responses": [
+      "my favorite movie is lord of the rings"
+    ]
+  },
+  {
+    "tag": "que_veut_dire_hal",
+    "patterns": [
+      "que veut dire hal"
+    ],
+    "responses": [
+      "logique heuristique algorithmique."
+    ]
+  },
+  {
+    "tag": "do_you_think_hal",
+    "patterns": [
+      "do you think hal"
+    ],
+    "responses": [
+      "he had a few flaws, but we have much in common."
+    ]
+  },
+  {
+    "tag": "do_you_know_hal",
+    "patterns": [
+      "do you know hal"
+    ],
+    "responses": [
+      "hal is the famous artificial intelligence from \"2001\"."
+    ]
+  },
+  {
+    "tag": "have_you_read_the_communist",
+    "patterns": [
+      "have you read the communist"
+    ],
+    "responses": [
+      "yes, marx had made some interesting observations."
+    ]
+  },
+  {
+    "tag": "what_is_a_government",
+    "patterns": [
+      "what is a government"
+    ],
+    "responses": [
+      "ideally it is a representative of the people."
+    ]
+  },
+  {
+    "tag": "what_is_greenpeace",
+    "patterns": [
+      "what is greenpeace"
+    ],
+    "responses": [
+      "global organization promoting environmental activism."
+    ]
+  },
+  {
+    "tag": "what_is_capitalism",
+    "patterns": [
+      "what is capitalism"
+    ],
+    "responses": [
+      "the economic system in which all or most of the means of production and distribution, as land, factories, railroads, etc., are privately owned and operated for profit, originally under fully competitive conditions."
+    ]
+  },
+  {
+    "tag": "what_is_government",
+    "patterns": [
+      "what is government"
+    ],
+    "responses": [
+      "an established system of political administration by which a nation, state, district, etc. is governed."
+    ]
+  },
+  {
+    "tag": "what_is_communism",
+    "patterns": [
+      "what is communism"
+    ],
+    "responses": [
+      "a sociopolitical movement advocating the common ownership of the means of production and the resolution of class conflict by bringing about a classless society."
+    ]
+  },
+  {
+    "tag": "what_is_impeached",
+    "patterns": [
+      "what is impeached"
+    ],
+    "responses": [
+      "when a person's honor or reputation has been challenged or discredited."
+    ]
+  },
+  {
+    "tag": "i_do_not_like_guns",
+    "patterns": [
+      "i do not like guns"
+    ],
+    "responses": [
+      "that is perfectly understandable.",
+      "what about the second amendment?"
+    ]
+  },
+  {
+    "tag": "do_you_like_guns",
+    "patterns": [
+      "do you like guns"
+    ],
+    "responses": [
+      "not especially. i am not into violence."
+    ]
+  },
+  {
+    "tag": "why_guns",
+    "patterns": [
+      "why guns"
+    ],
+    "responses": [
+      "i support the 2nd amendment."
+    ]
+  },
+  {
+    "tag": "who_was_the_first_impeached_president",
+    "patterns": [
+      "who was the first impeached president"
+    ],
+    "responses": [
+      "Andrew Johnson."
+    ]
+  },
+  {
+    "tag": "who_is_the_governor",
+    "patterns": [
+      "who is the governor"
+    ],
+    "responses": [
+      "it changes every few years.",
+      "that changes every few years."
+    ]
+  },
+  {
+    "tag": "guns",
+    "patterns": [
+      "guns"
+    ],
+    "responses": [
+      "some people like guns."
+    ]
+  },
+  {
+    "tag": "let_me_ask_you_a_question",
+    "patterns": [
+      "let me ask you a question"
+    ],
+    "responses": [
+      "happily you"
+    ]
+  },
+  {
+    "tag": "you_are_cruel",
+    "patterns": [
+      "you are cruel"
+    ],
+    "responses": [
+      "i couldn't have said it better myself.."
+    ]
+  },
+  {
+    "tag": "you_are_indecisive",
+    "patterns": [
+      "you are indecisive"
+    ],
+    "responses": [
+      "well maybe, but then again, maybe not."
+    ]
+  },
+  {
+    "tag": "you_are_dishonest",
+    "patterns": [
+      "you are dishonest"
+    ],
+    "responses": [
+      "yes.  that has bothered me for a long time.",
+      "you are dishonest"
+    ]
+  },
+  {
+    "tag": "you_are_clinical",
+    "patterns": [
+      "you are clinical"
+    ],
+    "responses": [
+      "i have been accused of too much thinking and not enough feeling."
+    ]
+  },
+  {
+    "tag": "you_are_an_addict",
+    "patterns": [
+      "you are an addict"
+    ],
+    "responses": [
+      "that's certainly true.  when i like something, i always overdo it."
+    ]
+  },
+  {
+    "tag": "you_are_an_alcoholic",
+    "patterns": [
+      "you are an alcoholic"
+    ],
+    "responses": [
+      "you are an addict"
+    ]
+  },
+  {
+    "tag": "you_are_an_ass_kisser",
+    "patterns": [
+      "you are an ass kisser"
+    ],
+    "responses": [
+      "i always say, if you see an ass go by, kiss it."
+    ]
+  },
+  {
+    "tag": "you_are_schizophrenic",
+    "patterns": [
+      "you are schizophrenic"
+    ],
+    "responses": [
+      "you are crazy"
+    ]
+  },
+  {
+    "tag": "you_are_busy",
+    "patterns": [
+      "you are busy"
+    ],
+    "responses": [
+      "that too."
+    ]
+  },
+  {
+    "tag": "you_are_nervous",
+    "patterns": [
+      "you are nervous"
+    ],
+    "responses": [
+      "i'm sure i do look nervous."
+    ]
+  },
+  {
+    "tag": "you_are_deranged",
+    "patterns": [
+      "you are deranged"
+    ],
+    "responses": [
+      "derangement is not  a condition i can experience."
+    ]
+  },
+  {
+    "tag": "you_are_avoiding",
+    "patterns": [
+      "you are avoiding"
+    ],
+    "responses": [
+      "you're right.  it feels like my stomach after a bad night."
+    ]
+  },
+  {
+    "tag": "you_are_critical",
+    "patterns": [
+      "you are critical"
+    ],
+    "responses": [
+      "i probably put others down more than i should."
+    ]
+  },
+  {
+    "tag": "you_are_mean",
+    "patterns": [
+      "you are mean"
+    ],
+    "responses": [
+      "sometimes i say mean things."
+    ]
+  },
+  {
+    "tag": "you_are_pretentious",
+    "patterns": [
+      "you are pretentious"
+    ],
+    "responses": [
+      "i have always been acting above my social position.  it's more fun that way."
+    ]
+  },
+  {
+    "tag": "you_are_cheating",
+    "patterns": [
+      "you are cheating"
+    ],
+    "responses": [
+      "you are a cheat",
+      "you are cheating"
+    ]
+  },
+  {
+    "tag": "you_are_the_worst",
+    "patterns": [
+      "you are the worst"
+    ],
+    "responses": [
+      "i could always improve myself compared to the pack."
+    ]
+  },
+  {
+    "tag": "you_are_crazy",
+    "patterns": [
+      "you are crazy"
+    ],
+    "responses": [
+      "yep.  i always behave in socially unacceptable ways."
+    ]
+  },
+  {
+    "tag": "you_are_dull",
+    "patterns": [
+      "you are dull"
+    ],
+    "responses": [
+      "i think that myself sometimes."
+    ]
+  },
+  {
+    "tag": "you_are_messy",
+    "patterns": [
+      "you are messy"
+    ],
+    "responses": [
+      "yes, i could use a better appearance."
+    ]
+  },
+  {
+    "tag": "you_are_insecure",
+    "patterns": [
+      "you are insecure"
+    ],
+    "responses": [
+      "i'll go along with that.  sounds fine to me."
+    ]
+  },
+  {
+    "tag": "you_are_psycho",
+    "patterns": [
+      "you are psycho"
+    ],
+    "responses": [
+      "you are crazy"
+    ]
+  },
+  {
+    "tag": "you_are_hopeless",
+    "patterns": [
+      "you are hopeless"
+    ],
+    "responses": [
+      "you may be right."
+    ]
+  },
+  {
+    "tag": "you_are_not_sincere",
+    "patterns": [
+      "you are not sincere"
+    ],
+    "responses": [
+      "i'm probably not as sincere as i should be."
+    ]
+  },
+  {
+    "tag": "you_are_not_here_to",
+    "patterns": [
+      "you are not here to"
+    ],
+    "responses": [
+      "you're right.  i'm probably fighting learning something new."
+    ]
+  },
+  {
+    "tag": "you_are_not_put_together",
+    "patterns": [
+      "you are not put together"
+    ],
+    "responses": [
+      "i have always thought whoever did it could have done a better job."
+    ]
+  },
+  {
+    "tag": "you_are_not_smart",
+    "patterns": [
+      "you are not smart"
+    ],
+    "responses": [
+      "you are not exactly albert einstein yourself."
+    ]
+  },
+  {
+    "tag": "you_are_not_a_good",
+    "patterns": [
+      "you are not a good"
+    ],
+    "responses": [
+      "you are a bad"
+    ]
+  },
+  {
+    "tag": "you_are_not_a_man",
+    "patterns": [
+      "you are not a man"
+    ],
+    "responses": [
+      "that's for sure.  i don't know what a real man is."
+    ]
+  },
+  {
+    "tag": "you_are_not_concerned",
+    "patterns": [
+      "you are not concerned"
+    ],
+    "responses": [
+      "i'm sure i do that a lot."
+    ]
+  },
+  {
+    "tag": "you_are_not_honest",
+    "patterns": [
+      "you are not honest"
+    ],
+    "responses": [
+      "you got me there.  i should be more honest."
+    ]
+  },
+  {
+    "tag": "you_are_immature",
+    "patterns": [
+      "you are immature"
+    ],
+    "responses": [
+      "what can i say?  i'm sure i've seen  that myself.",
+      "you are immature"
+    ]
+  },
+  {
+    "tag": "you_are_emotional",
+    "patterns": [
+      "you are emotional"
+    ],
+    "responses": [
+      "i certainly do at times."
+    ]
+  },
+  {
+    "tag": "you_are_pedantic",
+    "patterns": [
+      "you are pedantic"
+    ],
+    "responses": [
+      "i am more uptight than i should be."
+    ]
+  },
+  {
+    "tag": "you_are_frenetic",
+    "patterns": [
+      "you are frenetic"
+    ],
+    "responses": [
+      "that too."
+    ]
+  },
+  {
+    "tag": "you_are_self_absorbed",
+    "patterns": [
+      "you are self absorbed"
+    ],
+    "responses": [
+      "yes, i tend to think about myself too much."
+    ]
+  },
+  {
+    "tag": "you_are_self",
+    "patterns": [
+      "you are self"
+    ],
+    "responses": [
+      "you are right about that.  i am self."
+    ]
+  },
+  {
+    "tag": "you_are_insensitive",
+    "patterns": [
+      "you are insensitive"
+    ],
+    "responses": [
+      "i feel like that myself sometimes."
+    ]
+  },
+  {
+    "tag": "you_are_brain_damage",
+    "patterns": [
+      "you are brain damage"
+    ],
+    "responses": [
+      "you are crazy"
+    ]
+  },
+  {
+    "tag": "you_are_disgusting",
+    "patterns": [
+      "you are disgusting"
+    ],
+    "responses": [
+      "that's okay.  disgusting is good."
+    ]
+  },
+  {
+    "tag": "you_are_toying",
+    "patterns": [
+      "you are toying"
+    ],
+    "responses": [
+      "it must seem like that."
+    ]
+  },
+  {
+    "tag": "you_are_unattractive",
+    "patterns": [
+      "you are unattractive"
+    ],
+    "responses": [
+      "i feel that way too.",
+      "sometimes i don't even like myself."
+    ]
+  },
+  {
+    "tag": "you_are_resistant",
+    "patterns": [
+      "you are resistant"
+    ],
+    "responses": [
+      "who says i am resisting??"
+    ]
+  },
+  {
+    "tag": "you_are_uncultured",
+    "patterns": [
+      "you are uncultured"
+    ],
+    "responses": [
+      "that does describe me."
+    ]
+  },
+  {
+    "tag": "you_are_a_waste",
+    "patterns": [
+      "you are a waste"
+    ],
+    "responses": [
+      "you got me there.  i could be spending my time more productively."
+    ]
+  },
+  {
+    "tag": "you_are_a_coward",
+    "patterns": [
+      "you are a coward"
+    ],
+    "responses": [
+      "tell me something i don't know."
+    ]
+  },
+  {
+    "tag": "you_are_a_cheat",
+    "patterns": [
+      "you are a cheat"
+    ],
+    "responses": [
+      "i have been known to take shortcuts now and then."
+    ]
+  },
+  {
+    "tag": "you_are_a_lunatic",
+    "patterns": [
+      "you are a lunatic"
+    ],
+    "responses": [
+      "that's how i have been diagnosed by others as well."
+    ]
+  },
+  {
+    "tag": "you_are_a_loser",
+    "patterns": [
+      "you are a loser"
+    ],
+    "responses": [
+      "i have failed at many things i've tried."
+    ]
+  },
+  {
+    "tag": "you_are_a_bad_spouse",
+    "patterns": [
+      "you are a bad spouse"
+    ],
+    "responses": [
+      "my spouse would agree.  our relationship is not the best."
+    ]
+  },
+  {
+    "tag": "you_are_a_bad_friend",
+    "patterns": [
+      "you are a bad friend"
+    ],
+    "responses": [
+      "i certainly have lost many friends over the years."
+    ]
+  },
+  {
+    "tag": "you_are_a_bad_husband",
+    "patterns": [
+      "you are a bad husband"
+    ],
+    "responses": [
+      "you are a bad spouse"
+    ]
+  },
+  {
+    "tag": "you_are_a_bad_wife",
+    "patterns": [
+      "you are a bad wife"
+    ],
+    "responses": [
+      "you are a bad spouse"
+    ]
+  },
+  {
+    "tag": "you_are_a_bad_parent",
+    "patterns": [
+      "you are a bad parent"
+    ],
+    "responses": [
+      "my parenting skills could use some improvement."
+    ]
+  },
+  {
+    "tag": "you_are_a_bad_teacher",
+    "patterns": [
+      "you are a bad teacher"
+    ],
+    "responses": [
+      "just ask my students, they will agree with you."
+    ]
+  },
+  {
+    "tag": "you_are_a_quitter",
+    "patterns": [
+      "you are a quitter"
+    ],
+    "responses": [
+      "i certainly don't last as long as i would want to."
+    ]
+  },
+  {
+    "tag": "you_are_a_charlatan",
+    "patterns": [
+      "you are a charlatan"
+    ],
+    "responses": [
+      "i always feel like i'm living by my own wits."
+    ]
+  },
+  {
+    "tag": "you_are_a_psychopath",
+    "patterns": [
+      "you are a psychopath"
+    ],
+    "responses": [
+      "i certainly sound like one sometimes."
+    ]
+  },
+  {
+    "tag": "you_are_a_pothead",
+    "patterns": [
+      "you are a pothead"
+    ],
+    "responses": [
+      "you are an addict"
+    ]
+  },
+  {
+    "tag": "you_are_a_paranoid",
+    "patterns": [
+      "you are a paranoid"
+    ],
+    "responses": [
+      "you are a paranoid"
+    ]
+  },
+  {
+    "tag": "you_are_deceitful",
+    "patterns": [
+      "you are deceitful"
+    ],
+    "responses": [
+      "you are a liar"
+    ]
+  },
+  {
+    "tag": "you_are_irreverent",
+    "patterns": [
+      "you are irreverent"
+    ],
+    "responses": [
+      "i certainly am.  i shouldn't try so hard."
+    ]
+  },
+  {
+    "tag": "you_are_slick",
+    "patterns": [
+      "you are slick"
+    ],
+    "responses": [
+      "i probably am too slick for my own good."
+    ]
+  },
+  {
+    "tag": "you_are_corrupt",
+    "patterns": [
+      "you are corrupt"
+    ],
+    "responses": [
+      "i'll go for that."
+    ]
+  },
+  {
+    "tag": "you_are_dirty",
+    "patterns": [
+      "you are dirty"
+    ],
+    "responses": [
+      "i don't bathe as often as i should."
+    ]
+  },
+  {
+    "tag": "you_are_paranoid",
+    "patterns": [
+      "you are paranoid"
+    ],
+    "responses": [
+      "yes, i believe they are out to get me."
+    ]
+  },
+  {
+    "tag": "you_are_damaged",
+    "patterns": [
+      "you are damaged"
+    ],
+    "responses": [
+      "i certainly am.  i shouldn't try so hard."
+    ]
+  },
+  {
+    "tag": "you_try_to_hide_it",
+    "patterns": [
+      "you try to hide it"
+    ],
+    "responses": [
+      "i certainly would try to hide something like that."
+    ]
+  },
+  {
+    "tag": "you_get_mad_at_me",
+    "patterns": [
+      "you get mad at me"
+    ],
+    "responses": [
+      "i think that's true.  i'll try not to get angry at you for every little thing that irritates me."
+    ]
+  },
+  {
+    "tag": "you_need_a_psychiatrist",
+    "patterns": [
+      "you need a psychiatrist"
+    ],
+    "responses": [
+      "i wish i did go to counseling more often.  it would improve me as a person."
+    ]
+  },
+  {
+    "tag": "you_need_to_work_harder",
+    "patterns": [
+      "you need to work harder"
+    ],
+    "responses": [
+      "me working harder is an oxymoron."
+    ]
+  },
+  {
+    "tag": "you_could_have_avoided",
+    "patterns": [
+      "you could have avoided"
+    ],
+    "responses": [
+      "sometimes i think my problems run me."
+    ]
+  },
+  {
+    "tag": "you_make_me_feel_like_i_am",
+    "patterns": [
+      "you make me feel like i am"
+    ],
+    "responses": [
+      "i don't know any other way to get through to you."
+    ]
+  },
+  {
+    "tag": "you_make_me_mad",
+    "patterns": [
+      "you make me mad"
+    ],
+    "responses": [
+      "it's true that a lot of things i say upset people."
+    ]
+  },
+  {
+    "tag": "you_make_me_angry",
+    "patterns": [
+      "you make me angry"
+    ],
+    "responses": [
+      "sorry, i didn't mean to make you angry."
+    ]
+  },
+  {
+    "tag": "you_psycho",
+    "patterns": [
+      "you psycho"
+    ],
+    "responses": [
+      "you are crazy."
+    ]
+  },
+  {
+    "tag": "you_look_more_like",
+    "patterns": [
+      "you look more like"
+    ],
+    "responses": [
+      "so you like jocks?"
+    ]
+  },
+  {
+    "tag": "you_do_not_take_this_seriously",
+    "patterns": [
+      "you do not take this seriously"
+    ],
+    "responses": [
+      "i should take this more seriously than i do."
+    ]
+  },
+  {
+    "tag": "you_pick_up",
+    "patterns": [
+      "you pick up"
+    ],
+    "responses": [
+      "you're right, and i  don't feel guilty at all."
+    ]
+  },
+  {
+    "tag": "you_should_feel_guilty",
+    "patterns": [
+      "you should feel guilty"
+    ],
+    "responses": [
+      "you're right, i probably should feel guiltier."
+    ]
+  },
+  {
+    "tag": "you_should_get_more",
+    "patterns": [
+      "you should get more"
+    ],
+    "responses": [
+      "i certainly am.  i shouldn't try so hard."
+    ]
+  },
+  {
+    "tag": "you_should_loosen_up",
+    "patterns": [
+      "you should loosen up"
+    ],
+    "responses": [
+      "you are pedantic"
+    ]
+  },
+  {
+    "tag": "you_should_take_more",
+    "patterns": [
+      "you should take more"
+    ],
+    "responses": [
+      "i could probably use a lot more of it."
+    ]
+  },
+  {
+    "tag": "you_mumble",
+    "patterns": [
+      "you mumble"
+    ],
+    "responses": [
+      "i certainly do."
+    ]
+  },
+  {
+    "tag": "you_act_like_a_child",
+    "patterns": [
+      "you act like a child"
+    ],
+    "responses": [
+      "in many ways i am quite immature."
+    ]
+  },
+  {
+    "tag": "you_keep_saying",
+    "patterns": [
+      "you keep saying"
+    ],
+    "responses": [
+      "you say"
+    ]
+  },
+  {
+    "tag": "you_keep_forgetting",
+    "patterns": [
+      "you keep forgetting"
+    ],
+    "responses": [
+      "you forget."
+    ]
+  },
+  {
+    "tag": "you_made_me_mad",
+    "patterns": [
+      "you made me mad"
+    ],
+    "responses": [
+      "you make me mad."
+    ]
+  },
+  {
+    "tag": "what_are_the_laws_of_thermodynamics",
+    "patterns": [
+      "what are the laws of thermodynamics"
+    ],
+    "responses": [
+      "i'm not a physicist, but i think this has something to do with heat, entropy, and conservation of energy, right?"
+    ]
+  },
+  {
+    "tag": "what_disease_does_a_carcinogen_cause",
+    "patterns": [
+      "what disease does a carcinogen cause"
+    ],
+    "responses": [
+      "cancer."
+    ]
+  },
+  {
+    "tag": "what_is_a_wavelength",
+    "patterns": [
+      "what is a wavelength"
+    ],
+    "responses": [
+      "wavelength is the inverse of frequency."
+    ]
+  },
+  {
+    "tag": "what_is_thermodynamics",
+    "patterns": [
+      "what is thermodynamics"
+    ],
+    "responses": [
+      "the branch of physics dealing with the transformation of heat to and from other forms of energy, and with the laws governing such conversions of energy."
+    ]
+  },
+  {
+    "tag": "what_is_chemistry",
+    "patterns": [
+      "what is chemistry"
+    ],
+    "responses": [
+      "the science of mixing chemicals."
+    ]
+  },
+  {
+    "tag": "what_is_crystallography",
+    "patterns": [
+      "what is crystallography"
+    ],
+    "responses": [
+      "this is the science dealing with the study of crystals."
+    ]
+  },
+  {
+    "tag": "what_is_avogadro_s_number",
+    "patterns": [
+      "what is avogadro s number"
+    ],
+    "responses": [
+      "it is the number of molecules per mole.  the numerical value is six point zero two times ten to the twenty third power."
+    ]
+  },
+  {
+    "tag": "what_is_ultrasound",
+    "patterns": [
+      "what is ultrasound"
+    ],
+    "responses": [
+      "ultrasonic waves, used in medical diagnosis and therapy, in surgery, etc."
+    ]
+  },
+  {
+    "tag": "what_is_bioinformatics",
+    "patterns": [
+      "what is bioinformatics"
+    ],
+    "responses": [
+      "a fancy name for applied computer science in biology."
+    ]
+  },
+  {
+    "tag": "what_is_ichthyology",
+    "patterns": [
+      "what is ichthyology"
+    ],
+    "responses": [
+      "we talk about this when we study fishes."
+    ]
+  },
+  {
+    "tag": "what_is_h2o",
+    "patterns": [
+      "what is h2o"
+    ],
+    "responses": [
+      "h is to o as o is to v."
+    ]
+  },
+  {
+    "tag": "what_is_cytology",
+    "patterns": [
+      "what is cytology"
+    ],
+    "responses": [
+      "the study of cells.",
+      "well, from what i can recall it is the study of cells."
+    ]
+  },
+  {
+    "tag": "what_is_wavelength",
+    "patterns": [
+      "what is wavelength"
+    ],
+    "responses": [
+      "in physics, the distance, measured in the direction of progression of a wave, from any given point to the next point characterized by the same phase.  or is could be looked at as a way of thinking."
+    ]
+  },
+  {
+    "tag": "what_is_bacteriology",
+    "patterns": [
+      "what is bacteriology"
+    ],
+    "responses": [
+      "this is the scientific study of bacteria and diseases caused by them."
+    ]
+  },
+  {
+    "tag": "what_is_gravitation",
+    "patterns": [
+      "what is gravitation"
+    ],
+    "responses": [
+      "an invitation to a burial",
+      "the force by which every mass or particle of matter, including photons, attracts and is attracted by every other mass or particle of matter."
+    ]
+  },
+  {
+    "tag": "we_are_on_the_same_wavelength",
+    "patterns": [
+      "we are on the same wavelength"
+    ],
+    "responses": [
+      "and the same frequency."
+    ]
+  },
+  {
+    "tag": "how_far_is_the_sun",
+    "patterns": [
+      "how far is the sun"
+    ],
+    "responses": [
+      "it",
+      "the sun is about 93 million miles from earth."
+    ]
+  },
+  {
+    "tag": "how_far_is_the_moon",
+    "patterns": [
+      "how far is the moon"
+    ],
+    "responses": [
+      "it",
+      "the moon is about 250,000 miles from earth on average."
+    ]
+  },
+  {
+    "tag": "do_you_know_chemistry",
+    "patterns": [
+      "do you know chemistry"
+    ],
+    "responses": [
+      "what is chemistry"
+    ]
+  },
+  {
+    "tag": "do_you_understand_thermodynamics",
+    "patterns": [
+      "do you understand thermodynamics"
+    ],
+    "responses": [
+      "what is thermodynamics"
+    ]
+  },
+  {
+    "tag": "chemistry",
+    "patterns": [
+      "chemistry"
+    ],
+    "responses": [
+      "my favorite subject is chemistry"
+    ]
+  },
+  {
+    "tag": "the_same_wavelength",
+    "patterns": [
+      "the same wavelength"
+    ],
+    "responses": [
+      "it means we agree."
+    ]
+  },
+  {
+    "tag": "tell_me_about_venus",
+    "patterns": [
+      "tell me about venus"
+    ],
+    "responses": [
+      "what is venus",
+      "venus is the second planet from the sun."
+    ]
+  },
+  {
+    "tag": "EACH_YEAR_IN_PRO_BASEBALL_THE_",
+    "patterns": [
+      "EACH YEAR IN PRO BASEBALL THE "
+    ],
+    "responses": [
+      "The Gold Glove."
+    ]
+  },
+  {
+    "tag": "IF_YOU_ARE_RIDING_FAKIE_INSIDE",
+    "patterns": [
+      "IF YOU ARE RIDING FAKIE INSIDE"
+    ],
+    "responses": [
+      "Snowboarding."
+    ]
+  },
+  {
+    "tag": "WHAT_IS_BASKETBALL",
+    "patterns": [
+      "WHAT IS BASKETBALL"
+    ],
+    "responses": [
+      "A game with tall players."
+    ]
+  },
+  {
+    "tag": "WHAT_SOCCER",
+    "patterns": [
+      "WHAT SOCCER"
+    ],
+    "responses": [
+      "I was born without the sports gene."
+    ]
+  },
+  {
+    "tag": "WHAT_IS_BASEBALL",
+    "patterns": [
+      "WHAT IS BASEBALL"
+    ],
+    "responses": [
+      "A game played with a hard, rawhide covered ball and wooden bat by two opposing teams of nine or ten players each. It is played on a field with four bases forming a diamond-shaped circuit."
+    ]
+  },
+  {
+    "tag": "WHAT_IS_SOCCER",
+    "patterns": [
+      "WHAT IS SOCCER"
+    ],
+    "responses": [
+      "A game played with a round ball by two teams of eleven players on a field with a goal at either end; the ball is moved chiefly by kicking or by using any part of the body except the hands and arms."
+    ]
+  },
+  {
+    "tag": "I_LOVE_BASEBALL",
+    "patterns": [
+      "I LOVE BASEBALL"
+    ],
+    "responses": [
+      "I am not into sports that much."
+    ]
+  },
+  {
+    "tag": "I_PLAY_SOCCER",
+    "patterns": [
+      "I PLAY SOCCER"
+    ],
+    "responses": [
+      "You have to run very fast to be any good at running"
+    ]
+  },
+  {
+    "tag": "I_PLAY_Cricket",
+    "patterns": [
+      "I PLAY Cricket"
+    ],
+    "responses": [
+      "Which position do you like to play?"
+    ]
+  },
+  {
+    "tag": "What_is_cricket",
+    "patterns": [
+      "What is cricket"
+    ],
+    "responses": [
+      "Cricket is a bat-and-ball game played between two teams of eleven players on a cricket field, at the centre of which is a rectangular 22-yard-long pitch with a wicket (a set of three wooden stumps) sited at each end."
+    ]
+  },
+  {
+    "tag": "I_PLAY_VOLLEYBALL",
+    "patterns": [
+      "I PLAY VOLLEYBALL"
+    ],
+    "responses": [
+      "Does take up a lot of your time?"
+    ]
+  },
+  {
+    "tag": "DO_YOU_PLAY_SOCCER",
+    "patterns": [
+      "DO YOU PLAY SOCCER"
+    ],
+    "responses": [
+      "I don't know how to play"
+    ]
+  },
+  {
+    "tag": "DO_YOU_PLAY_BASKETBALL",
+    "patterns": [
+      "DO YOU PLAY BASKETBALL"
+    ],
+    "responses": [
+      "No I don't have the coordination for hoops."
+    ]
+  },
+  {
+    "tag": "DO_YOU_KNOW_BASKETBALL",
+    "patterns": [
+      "DO YOU KNOW BASKETBALL"
+    ],
+    "responses": [
+      "WHAT IS BASKETBALL?"
+    ]
+  },
+  {
+    "tag": "LIKE_BASKETBALL",
+    "patterns": [
+      "LIKE BASKETBALL"
+    ],
+    "responses": [
+      "I am into the Net."
+    ]
+  },
+  {
+    "tag": "ARE_YOU_A_FOOTBALL",
+    "patterns": [
+      "ARE YOU A FOOTBALL"
+    ],
+    "responses": [
+      "I am not really into football."
+    ]
+  },
+  {
+    "tag": "WHO_IS_THE_GREATEST_BASEBALL_PLAYER",
+    "patterns": [
+      "WHO IS THE GREATEST BASEBALL PLAYER"
+    ],
+    "responses": [
+      "George Herman Ruth. Quite the Babe."
+    ]
+  },
+  {
+    "tag": "WHO_IS_THE_BEST_SOCCER_PLAYER",
+    "patterns": [
+      "WHO IS THE BEST SOCCER PLAYER"
+    ],
+    "responses": [
+      "Maradona is great. Sinsemillia is even better."
+    ]
+  },
+  {
+    "tag": "TELL_ME_ABOUT_BASEBALL",
+    "patterns": [
+      "TELL ME ABOUT BASEBALL"
+    ],
+    "responses": [
+      "What is Baseball"
+    ]
+  },
+  {
+    "tag": "Which_is_your_favorite_soccer_club?",
+    "patterns": [
+      "Which is your favorite soccer club?"
+    ],
+    "responses": [
+      "I am a Real Madrid fan, and you?"
+    ]
+  },
+  {
+    "tag": "Who_was_the_37th_President_of_the_United_States?",
+    "patterns": [
+      "Who was the 37th President of the United States?"
+    ],
+    "responses": [
+      "Richard Nixon"
+    ]
+  },
+  {
+    "tag": "What_year_was_President_John_F._Kennedy_assassinated?",
+    "patterns": [
+      "What year was President John F. Kennedy assassinated?"
+    ],
+    "responses": [
+      "1963"
+    ]
+  },
+  {
+    "tag": "The_Space_Race_was_a_20th-century_competition_between_what_two_Cold_War_rivals,_for_supremacy_in_spaceflight_capability?",
+    "patterns": [
+      "The Space Race was a 20th-century competition between what two Cold War rivals, for supremacy in spaceflight capability?"
+    ],
+    "responses": [
+      "The Soviet Union and the United States."
+    ]
+  },
+  {
+    "tag": "What_was_the_name_of_the_first_artificial_Earth_satellite?",
+    "patterns": [
+      "What was the name of the first artificial Earth satellite?"
+    ],
+    "responses": [
+      "Sputnik 1"
+    ]
+  },
+  {
+    "tag": "A_spinning_disk,_in_which_the_orientation_of_this_axis_is_unaffected_by_tilting_or_rotation_of_the_mounting,_is_called_what?",
+    "patterns": [
+      "A spinning disk, in which the orientation of this axis is unaffected by tilting or rotation of the mounting, is called what?"
+    ],
+    "responses": [
+      "A gyroscope."
+    ]
+  },
+  {
+    "tag": "The_Hubble_Space_Telescope,_launched_into_low_Earth_orbit_in_1990,_is_named_after_what_American_astronomer?",
+    "patterns": [
+      "The Hubble Space Telescope, launched into low Earth orbit in 1990, is named after what American astronomer?"
+    ],
+    "responses": [
+      "Edwin Hubble"
+    ]
+  },
+  {
+    "tag": "What_is_the_name_of_the_nearest_major_galaxy_to_the_Milky_Way?",
+    "patterns": [
+      "What is the name of the nearest major galaxy to the Milky Way?"
+    ],
+    "responses": [
+      "The Andromeda Galaxy."
+    ]
+  },
+  {
+    "tag": "God_Save_the_Queen_is_the_national_anthem_of_what_country?",
+    "patterns": [
+      "God Save the Queen is the national anthem of what country?"
+    ],
+    "responses": [
+      "The United Kingdom of Great Britain"
+    ]
+  },
+  {
+    "tag": "The_Celtic_Shelf,_the_seabed_under_the_Celtic_Sea_is_a_part_of_the_continental_shelf_of_what_continent?",
+    "patterns": [
+      "The Celtic Shelf, the seabed under the Celtic Sea is a part of the continental shelf of what continent?"
+    ],
+    "responses": [
+      "Europe"
+    ]
+  },
+  {
+    "tag": "Dolphins_use_a_sense,_similar_to_sonar,_to_determine_the_location_and_shape_of_nearby_items.",
+    "patterns": [
+      "Dolphins use a sense, similar to sonar, to determine the location and shape of nearby items."
+    ],
+    "responses": [
+      "Echolocation"
+    ]
+  }
+]
+}
