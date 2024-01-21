@@ -1,3 +1,15 @@
+# v0.0.3 (Sun Jan 21 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add files via upload ([@kingsiddhu](https://github.com/kingsiddhu))
+
+#### Authors: 1
+
+- siddharth ([@kingsiddhu](https://github.com/kingsiddhu))
+
+---
+
 # v0.0.2 (Sun Jan 21 2024)
 
 #### ⚠️ Pushed to `main`
