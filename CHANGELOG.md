@@ -1,3 +1,15 @@
+# v0.0.2 (Sun Jan 21 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update app.py ([@kingsiddhu](https://github.com/kingsiddhu))
+
+#### Authors: 1
+
+- siddharth ([@kingsiddhu](https://github.com/kingsiddhu))
+
+---
+
 # v0.0.1 (Sun Jan 21 2024)
 
 :tada: This release contains work from a new contributor! :tada:
